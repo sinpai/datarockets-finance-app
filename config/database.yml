@@ -82,4 +82,4 @@ production:
   <<: *default
   database: datarockets-finance-app_production
   username: datarockets-finance-app
-  password: <%= ENV['DATAROCKETS-FINANCE-APP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATAROCKETS_FINANCE_APP_DATABASE_PASSWORD'] %>

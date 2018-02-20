@@ -1,0 +1,19 @@
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.4.1
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'bin/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'script/**/*'
+
+Metrics/LineLength:
+  Max: 120
