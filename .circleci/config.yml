@@ -42,10 +42,10 @@ jobs:
         
       # Database setup
       - run: bundle exec rake db:create
-      # run: bundle egxec rake db:schema:load
+      # run: bundle exec rake db:schema:load
 
       # Run linters
-      - run: reek -c config/linters/reek.yml .
+      - run: reek -c config/linters/reek.yml
 
       # run tests!
       - run:
