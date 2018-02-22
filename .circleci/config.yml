@@ -44,6 +44,9 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
+      # Complile webpacker
+      - run: bundle exec rails webpacker:compile
+
       # Run linters
       - run: reek -c config/linters/reek.yml
 
