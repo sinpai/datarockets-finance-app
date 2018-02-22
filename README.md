@@ -1,24 +1,13 @@
-# README
+# Datarockets Personal Finance App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### To launch please install all gems:
 
-Things you may want to cover:
+`bundle install`
 
-* Ruby version
+### Then setup database and rub migrations
 
-* System dependencies
+`rails db:setup && rails db:migrate`
 
-* Configuration
+### Then start the server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rails server`
