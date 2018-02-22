@@ -45,7 +45,6 @@ jobs:
       # run: bundle egxec rake db:schema:load
 
       # Run linters
-      - run: rubocop -l
       - run: reek -c config/linters/reek.yml .
 
       # run tests!
