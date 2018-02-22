@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use webpacker for assets
 gem 'webpacker', '~> 3.2'
+# Use slim for views
+gem 'slim'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
