@@ -14,8 +14,8 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'script/**/*'
-    - 'vendor/*'
-    - 'node_modules/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
 Style/FrozenStringLiteralComment:
   Enabled: false
 

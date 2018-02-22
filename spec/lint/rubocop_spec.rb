@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Check that the files have correct syntax' do
   before do
-    @report = `rubocop -l`
+    @report = `cd #{Rails.root.to_s} | rubocop -l`
     puts "Report: #{@report}"
   end
 
