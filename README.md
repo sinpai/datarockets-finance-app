@@ -11,3 +11,5 @@
 ### Then start the server
 
 `rails server`
+
+### Go to http://localhost:3000 to see your app

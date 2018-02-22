@@ -6,13 +6,16 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
        - image: circleci/ruby:2.4.1-node-browsers
+         environment:
+         - RAILS_ENV: test
+         - PGHOST: 127.0.0.1
+         - PGUSER: root
       
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+       - image: circleci/postgres:9.4
+         environment:
+         - POSTGRES_USER: root
+         - POSTGRES_DB: datarockets-finance-app_test
 
     working_directory: ~/repo
 
@@ -23,13 +26,14 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: sudo apt-get update
+      - run: sudo apt install postgresql-client
 
       - save_cache:
           paths:
@@ -40,9 +44,12 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
+      # Complile webpacker
+      - run: yarn install
+      - run: bundle exec rails webpacker:compile
+
       # Run linters
-      - run: rubocop -l
-      - run: reek -c config/linters/reek.yml .
+      - run: reek -c config/linters/reek.yml
 
       # run tests!
       - run:
@@ -52,10 +59,10 @@ jobs:
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             
             bundle exec rspec --format progress \
-                            --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
                             --format progress \
                             $TEST_FILES
+
 
       # collect reports
       - store_test_results:
