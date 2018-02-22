@@ -45,6 +45,7 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # Complile webpacker
+      - run: yarn install
       - run: bundle exec rails webpacker:compile
 
       # Run linters
