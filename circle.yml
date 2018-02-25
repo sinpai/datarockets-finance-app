@@ -35,8 +35,8 @@ dependencies:
 test:
   post:
     - bundle exec rubocop
-    - reek app -c reek.yml
-    - reek config -c reek.yml
+    - reek app -c config/linters/reek.yml
+    - reek config -c config/linters/reek.yml
 
 deployment:
   staging:
