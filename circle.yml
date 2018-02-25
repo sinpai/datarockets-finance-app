@@ -33,6 +33,8 @@ dependencies:
     - bundle install: # note ':' here
         timeout: 180 # fail if command has no output for 3 minutes
 test:
+  pre:
+    - NODE_ENV=test bundle exec rails webpacker:compile
   post:
     - bundle exec rubocop
     - reek app -c config/linters/reek.yml
