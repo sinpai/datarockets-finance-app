@@ -8,6 +8,9 @@ machine:
     version:
       2.4.1
 
+  node:
+    version: 8.9.4
+
   # Override /etc/hosts
   hosts:
     circlehost: 127.0.0.1
