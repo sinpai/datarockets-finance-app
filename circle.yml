@@ -37,6 +37,7 @@ dependencies:
         timeout: 180 # fail if command has no output for 3 minutes
 test:
   pre:
+    - yarn install
     - NODE_ENV=test bundle exec rails webpacker:compile
   post:
     - bundle exec rubocop
