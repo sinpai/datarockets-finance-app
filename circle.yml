@@ -1,0 +1,51 @@
+machine:
+
+  timezone:
+    Europe/Minsk # Set the timezone
+
+  # Version of ruby to use
+  ruby:
+    version:
+      2.4.1
+
+  node:
+    version: 8.9.4
+
+  # Override /etc/hosts
+  hosts:
+    circlehost: 127.0.0.1
+    dev.mycompany.com: 127.0.0.1
+
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
+    DATABASE_URL: postgresql://ubuntu:@127.0.0.1:5432/circle_test
+
+## Customize checkout
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init # use submodules
+
+## Customize dependencies
+dependencies:
+  pre:
+    - gem install bundler --pre
+
+  override:
+    - bundle install: # note ':' here
+        timeout: 180 # fail if command has no output for 3 minutes
+test:
+  pre:
+    - yarn install
+    - NODE_ENV=test bundle exec rails webpacker:compile
+  post:
+    - bundle exec rubocop
+    - reek app -c config/linters/reek.yml
+    - reek config -c config/linters/reek.yml
+
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: datarockets-finance
