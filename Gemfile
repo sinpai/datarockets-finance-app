@@ -39,8 +39,8 @@ gem 'webpacker', '~> 3.2'
 gem 'slim'
 # Use devise for authentication
 gem 'devise'
-gem 'omniauth'
 gem 'devise-bootstrap-views'
+gem 'omniauth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
