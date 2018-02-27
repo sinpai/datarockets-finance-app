@@ -54,6 +54,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
+  # Factory bot to add fixtures to the tests
+  gem 'factory_bot_rails', '~> 4.0'
+  # Use faker to fill random data for tests
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 end
 
 group :development do
