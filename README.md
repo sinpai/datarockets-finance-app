@@ -1,5 +1,8 @@
 # Datarockets Personal Finance App
 
+Published on: datarockets-finance.herokuapp.com
+
+---
 ### To launch please install all gems:
 
 `bundle install`

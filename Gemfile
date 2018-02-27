@@ -41,6 +41,8 @@ gem 'slim'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'omniauth'
+# Use letter_opener to recieve mails on development environment
+gem 'letter_opener'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
