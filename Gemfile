@@ -37,6 +37,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'webpacker', '~> 3.2'
 # Use slim for views
 gem 'slim'
+# Use devise for authentication
+gem 'devise'
+gem 'omniauth'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
