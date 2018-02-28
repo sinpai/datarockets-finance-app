@@ -123,6 +123,12 @@ MethodLength:
   Max: 10
   Exclude:
     - "spec/**/*"
+    - "db/migrate/*"
+
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - 'config/environments/*'
 
 Metrics/LineLength:
   Max: 105
@@ -160,6 +166,8 @@ Style/CollectionMethods:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+  Exclude:
+    - 'config/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -172,6 +180,9 @@ Style/HashSyntax:
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
+
+Style/MixinUsage:
+  Enabled: false
 
 Style/RedundantReturn:
   AllowMultipleReturnValues: false

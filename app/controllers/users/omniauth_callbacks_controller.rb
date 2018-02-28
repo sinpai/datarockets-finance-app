@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     if user_from_auth.persisted?
@@ -10,8 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def github
-    @user = user_from_auth
-    sign_in_and_redirect @user
+    sign_in_and_redirect user_from_auth
   end
 
   private
