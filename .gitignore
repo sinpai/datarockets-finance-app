@@ -2,6 +2,7 @@
 /.bundle
 .env
 
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -12,6 +13,7 @@
 /yarn-error.log
 
 .byebug_history
+/public/uploads
 /public/packs
 /public/packs-test
 /node_modules
