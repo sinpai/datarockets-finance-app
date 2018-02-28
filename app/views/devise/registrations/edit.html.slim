@@ -17,6 +17,9 @@
             = f.file_field :avatar, class: 'form-control'
             = f.hidden_field :avatar_cache, class: 'form-control'
           .form-group
+            = f.label :username
+            = f.text_field :username, autofocus: true, class: 'form-control'
+          .form-group
             = f.label :email
             = f.email_field :email, autofocus: true, class: 'form-control'
           .form-group
