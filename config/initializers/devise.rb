@@ -15,4 +15,5 @@ Devise.setup do |config|
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
   config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_ID'], ENV['GOOGLE_OAUTH_SECRET']
+  config.omniauth :github, ENV['GITHUB_OAUTH_ID'], ENV['GITHUB_OAUTH_SECRET'], scope: 'user:email'
 end
