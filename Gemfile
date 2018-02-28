@@ -41,6 +41,7 @@ gem 'slim'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'omniauth'
+gem 'omniauth-google-oauth2'
 # Use letter_opener to recieve mails on development environment
 gem 'letter_opener'
 

@@ -1,6 +1,4 @@
 AllCops:
-  DisabledByDefault: true
-  DisplayCopNames: true
   Exclude:
     - 'db/schema.rb'
     - 'vendor/**/*'
@@ -8,6 +6,7 @@ AllCops:
     - 'tmp/**/*'
     - 'public/**/*'
     - 'log/**/*'
+    - 'config/initializers/devise.rb'
 
 Bundler/DuplicatedGem:
   Enabled: true
@@ -19,7 +18,7 @@ Layout/AccessModifierIndentation:
   EnforcedStyle: indent
 
 Layout/AlignParameters:
-  EnforcedStyle: with_first_parameter
+  EnforcedStyle: with_fixed_indentation
 
 Layout/BlockEndNewline:
   Enabled: true
@@ -115,12 +114,25 @@ Layout/TrailingWhitespace:
   Enabled: true
 
 Lint/EndAlignment:
-  EnforcedStyleAlignWith: start_of_line
+  EnforcedStyleAlignWith: variable
+
+Metrics/AbcSize:
+  Max: 18
+
+MethodLength:
+  Max: 10
+  Exclude:
+    - "spec/**/*"
 
 Metrics/LineLength:
-  Max: 120
+  Max: 105
   Exclude:
     - 'Gemfile'
+
+ModuleLength:
+  Max: 100
+  Exclude:
+    - "spec/**/*"
 
 Rails:
   Enabled: true
@@ -145,6 +157,15 @@ Style/CollectionMethods:
     inject: 'reduce'
     detect: 'find'
     find_all: 'select'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
 
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
