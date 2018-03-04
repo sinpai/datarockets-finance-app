@@ -19,7 +19,7 @@ Layout/AccessModifierIndentation:
   EnforcedStyle: indent
 
 Layout/AlignParameters:
-  EnforcedStyle: with_first_parameter
+  EnforcedStyle: with_fixed_indentation
 
 Layout/BlockEndNewline:
   Enabled: true
