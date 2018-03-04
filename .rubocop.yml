@@ -172,8 +172,11 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 Style/FrozenStringLiteralComment:
-  Enabled: true
+  Enabled: false
 
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys

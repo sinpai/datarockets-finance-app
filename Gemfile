@@ -1,12 +1,5 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 ruby '2.4.1'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
-  "https://github.com/#{repo_name}.git"
-end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -61,7 +54,7 @@ group :development, :test do
   # Factory bot to add fixtures to the tests
   gem 'factory_bot_rails', '~> 4.0'
   # Use faker to fill random data for tests
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'faker'
 end
 
 group :development do
