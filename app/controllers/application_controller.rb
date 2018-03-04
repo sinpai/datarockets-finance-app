@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         :password_confirmation, :current_password, :avatar, :avatar_cache, :remove_avatar)
     end
   end
-  
+
   def authenticate_user!
     if user_signed_in?
       super
