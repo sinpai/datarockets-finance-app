@@ -1,8 +1,7 @@
 div.jumbotron
-  h1.display-3 First page of the app
-  p.lead In the end it's aimed to be personal-finance management app
+  h1.display-3= t('.first_page')
+  p.lead= t('.description')
   hr.my-4
-  p For now it's just a simple page
+  p= t('.info')
   p.lead
-    a.btn.btn-primary.btn-lg[role="button"]
-      | Learn more
+    a.btn.btn-primary.btn-lg[role="button"]= t('.learn_more')

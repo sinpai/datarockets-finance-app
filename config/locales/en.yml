@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home_page:
+    show:
+      log_in_warning: 'You should be logged in order to see this page'
+      first_page: 'First page of the app'
+      description: "In the end it's aimed to be personal-finance management app"
+      info: "For now it's just a simple page"
+      learn_more: 'Learn more'
+  shared:
+    navbar:
+      brand_name: 'Personal Finance App'
+    user_session:
+      logout: 'Logout'
+      login: 'Login'
+      register: 'Register'
