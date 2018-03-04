@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::Omniauth
   attr_reader :auth
 
@@ -17,8 +15,17 @@ class Users::Omniauth
   delegate :email, to: :info
 
   def user
-    user = User.where(provider: provider, uid: uid, email: email).first
-    user ||= User.new(
+    user = find_user
+    user ||= create_user
+    user
+  end
+
+  def find_user
+    User.where(provider: provider, uid: uid, email: email).first
+  end
+
+  def create_user
+    user = User.new(
       provider: provider,
       uid: uid,
       email: email,
@@ -26,6 +33,5 @@ class Users::Omniauth
     )
     user.skip_confirmation!
     user.save
-    user
   end
 end

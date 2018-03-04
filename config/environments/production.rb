@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   config.cache_classes = true
@@ -12,7 +10,10 @@ Rails.application.configure do
   config.assets.compile = false
   config.log_level = :debug
   config.log_tags = [:request_id]
-  config.action_mailer.default_url_options = {host: 'datarockets-finance.herokuapp.com', port: 3000}
+  config.action_mailer.default_url_options = {
+    host: 'datarockets-finance.herokuapp.com',
+    port: ENV['DEFAULT_PORT']
+  }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
