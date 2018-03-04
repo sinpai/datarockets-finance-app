@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'devise/orm/active_record'
 
 Devise.setup do |config|
