@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require 'devise/orm/active_record'
+
 Devise.setup do |config|
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  require 'devise/orm/active_record'
   config.secret_key = ENV['DEVISE_SECRET_KEY']
+  config.mailer_sender = 'df@datarockets-finance.herokuapp.com'
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
   config.skip_session_storage = [:http_auth]
