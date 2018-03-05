@@ -1,15 +1,15 @@
-.col-md-6.offset-md-3
-  table.table
+.col-md-8.offset-md-2
+  table.table.table-striped.table-hover
     thead
       tr
         th[scope="col"] Id
-        th[scope="col"] Sum
-        th[scope="col"] Date
-        th[scope="col"] Comment
+        th Sum
+        th Date
+        th Comment
     tbody
     - @recent_records.each do |record|
       tr
-        th[scope="row"]= record.id
-        th[scope="row"]= record.sum
-        th[scope="row"]= record.date
-        th[scope="row"]= record.comment
+        th.[scope="row"]= record.id
+        th= record.sum
+        th= record.date
+        th= record.comment

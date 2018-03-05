@@ -5,4 +5,4 @@ div.jumbotron
   .col-md-6.offset-md-3
     =render partial: 'transactions/form'
   hr.my-4
-  =render partial: 'transactions/recent_transactions' if @recent_records
+  =render partial: 'transactions/recent_transactions' unless @recent_records.blank?

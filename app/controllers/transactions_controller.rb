@@ -12,10 +12,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def recent_records
-    @recent_records = Transaction.most_recent
-  end
-
   private
 
   def transaction_params
