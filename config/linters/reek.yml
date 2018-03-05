@@ -1,4 +1,6 @@
 IrresponsibleModule:
   enabled: false
+PrimaDonnaMethod:
+  enabled: false
 NestedIterators:
   max_allowed_nesting: 2

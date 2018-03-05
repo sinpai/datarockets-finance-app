@@ -3,6 +3,7 @@
 require 'devise/orm/active_record'
 
 Devise.setup do |config|
+  config.secret_key = ENV['DEVISE_SECRET_KEY']
   config.mailer_sender = 'df@datarockets-finance.herokuapp.com'
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
