@@ -1,0 +1,30 @@
+= bootstrap_devise_error_messages!
+.row
+  .col-md-6.offset-md-3
+    .panel.panel-default.devise-bs
+      .panel-heading.text-center
+        h4
+          = t('.title', resource: resource_class.model_name.human)
+      .panel-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          .form-group
+            = f.label :email
+            = f.email_field :email, autofocus: true, class: 'form-control'
+          .form-group
+            = f.label :password
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+          .form-group
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, class: 'form-control'
+          .form-group
+            = f.label :current_password
+            = f.password_field :current_password, class: 'form-control'
+          = f.submit t('.update'), class: 'btn btn-primary'
+    br
+      = t('.unhappy')
+      | ?
+      br
+      = link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
+      | .
+      br
+    = link_to t('.back'), :back
