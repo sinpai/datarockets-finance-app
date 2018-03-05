@@ -5,5 +5,5 @@ class User < ApplicationRecord
     :validatable, :confirmable, :omniauthable
   devise :omniauthable, omniauth_providers: %i[google_oauth2 github]
 
-  has_many :transactions
+  has_many :transactions, dependent: destroy
 end

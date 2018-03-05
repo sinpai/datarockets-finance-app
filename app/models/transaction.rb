@@ -4,9 +4,6 @@ class Transaction < ApplicationRecord
   validates :sum, :date, presence: true
   validates :sum, numericality: true
 
-  scope :most_recent ->{ order(created_at: :desc).limit(10) }
-
-  def self.total(user)
-    sum(:sum).where(user_id: user)
-  end
+  scope :most_recent, -> (user) { where(user_id: user).order(created_at: :desc).limit(10) }
+  scope :total, -> (user) { sum(:sum).where(user_id: user) }
 end
