@@ -1,6 +1,4 @@
 AllCops:
-  DisabledByDefault: true
-  DisplayCopNames: true
   Exclude:
     - 'db/schema.rb'
     - 'vendor/**/*'
@@ -8,6 +6,7 @@ AllCops:
     - 'tmp/**/*'
     - 'public/**/*'
     - 'log/**/*'
+    - 'config/initializers/devise.rb'
 
 Bundler/DuplicatedGem:
   Enabled: true
@@ -115,12 +114,31 @@ Layout/TrailingWhitespace:
   Enabled: true
 
 Lint/EndAlignment:
-  EnforcedStyleAlignWith: start_of_line
+  EnforcedStyleAlignWith: variable
+
+Metrics/AbcSize:
+  Max: 18
+
+MethodLength:
+  Max: 10
+  Exclude:
+    - "spec/**/*"
+    - "db/migrate/*"
+
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - 'config/environments/*'
 
 Metrics/LineLength:
-  Max: 120
+  Max: 105
   Exclude:
     - 'Gemfile'
+
+ModuleLength:
+  Max: 100
+  Exclude:
+    - "spec/**/*"
 
 Rails:
   Enabled: true
@@ -146,11 +164,28 @@ Style/CollectionMethods:
     detect: 'find'
     find_all: 'select'
 
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'config/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
+
+Style/MixinUsage:
+  Enabled: false
 
 Style/RedundantReturn:
   AllowMultipleReturnValues: false

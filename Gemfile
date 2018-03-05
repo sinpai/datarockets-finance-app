@@ -1,11 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-git_source(:github) do |repo_name|
-  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
-  'https://github.com/#{repo_name}.git'
-end
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -41,12 +36,14 @@ gem 'slim'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 # Use letter_opener to recieve mails on development environment
 gem 'letter_opener'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
@@ -57,7 +54,7 @@ group :development, :test do
   # Factory bot to add fixtures to the tests
   gem 'factory_bot_rails', '~> 4.0'
   # Use faker to fill random data for tests
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'faker'
 end
 
 group :development do
@@ -71,4 +68,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
