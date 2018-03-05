@@ -40,6 +40,8 @@ gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 # Use letter_opener to recieve mails on development environment
 gem 'letter_opener'
+# Use carrierwave to save avatars of Users
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

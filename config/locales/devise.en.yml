@@ -1,5 +1,3 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 en:
   devise:
     confirmations:
@@ -70,6 +68,7 @@ en:
       cancel_my_account: 'Cancel my account'
       back: 'Back'
       sign_up: 'Sign up'
+      remove_avatar: 'Remove avatar?'
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
