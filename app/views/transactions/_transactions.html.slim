@@ -1,4 +1,4 @@
-.col-md-8.offset-md-2
+.col-md-12
   table.table.table-striped.table-hover
     thead
       tr
@@ -7,7 +7,7 @@
         th= t('.date')
         th= t('.comment')
     tbody
-    - @recent_records.each do |record|
+    - @transactions.each do |record|
       tr
         th.[scope="row"]= record.id
         th= record.sum

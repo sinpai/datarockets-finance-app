@@ -5,4 +5,5 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-primary
     a.navbar-brand[href="/"]= t('.brand_name')
     #navbar-responsive-button.collapse.navbar-collapse
     .nav.navbar-nav.navbar-right
+      = link_to t('.activity'), transactions_path, class: 'nav-link mr-4'
       = render partial: 'shared/user_session'

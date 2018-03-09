@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   root to: 'home_page#show'
-  resources :transactions, only: %i[new create]
+  resources :transactions do
+    collection do
+      match 'search' => 'transactions#search', via: %i[get post], as: :search
+    end
+  end
 end
