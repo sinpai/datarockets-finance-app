@@ -1,15 +1,29 @@
 h3.header.text-center= t('.activity_header')
 
-div.mx-3
-  = search_form_for @search, url: search_transactions_path, method: :post do |f|
-    = f.label :date
-    div.input-group
-      = f.text_field :date_gteq, class: 'form-control'
-      span class='input-group-addon'
-        | to
-      = f.text_field :date_lteq, class: 'form-control'
-      = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
+= search_form_for @search, url: search_transactions_path, method: :post do |f|
+  = f.label :date
+  div.input-group
+    = f.text_field :date_gteq, class: 'form-control'
+    span class='input-group-addon'
+      | to
+    = f.text_field :date_lteq, class: 'form-control'
+    = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
 
-= render 'transactions'
+hr.my-4
 
-div.mx-3= will_paginate(@transactions)
+.row
+  = render 'transactions'
+  .col-md-4
+    h3.text-center= t('.new_transaction')
+    = render 'form'
+
+= will_paginate(@transactions)
+
+div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title Modal title
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  ×
+      .modal-body

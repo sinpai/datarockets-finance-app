@@ -1,4 +1,4 @@
-.col-md-12
+.col-md-8
   table.table.table-striped.table-hover
     thead
       tr
@@ -6,6 +6,7 @@
         th= t('.sum')
         th= t('.date')
         th= t('.comment')
+        th.text-center= t('.actions')
     tbody
     - @transactions.each do |record|
       tr
@@ -13,3 +14,6 @@
         th= record.sum
         th= record.date
         th= record.comment
+        th.d-flex.justify-content-around
+          = link_to 'Edit', edit_transaction_path(record), {remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info' }
+          = link_to 'Delete', transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item'
