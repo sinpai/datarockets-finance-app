@@ -15,3 +15,12 @@ en:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
+    form:
+      submit: 'Add money'
+    recent_transactions:
+      id: 'Id'
+      sum: 'Sum'
+      date: 'Date'
+      comment: 'Comment'
+    new:
+      header: 'Add money record'

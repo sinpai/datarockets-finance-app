@@ -2,10 +2,10 @@
   table.table.table-striped.table-hover
     thead
       tr
-        th[scope="col"] Id
-        th Sum
-        th Date
-        th Comment
+        th[scope="col"]= t('.id')
+        th= ('.sum')
+        th= ('.date')
+        th= ('.comment')
     tbody
     - @recent_records.each do |record|
       tr
