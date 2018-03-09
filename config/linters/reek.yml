@@ -11,3 +11,6 @@ InstanceVariableAssumption:
 FeatureEnvy:
   exclude:
     - "ApplicationHelper"
+UtilityFunction:
+  exclude:
+    - "ApplicationHelper"
