@@ -45,8 +45,8 @@ gem 'carrierwave', '~> 1.0'
 # Use simple_form for platforms
 gem 'simple_form'
 # Pagination
-gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
+gem 'will_paginate', '~> 3.1.0'
 # Filter gem
 gem 'ransack'
 

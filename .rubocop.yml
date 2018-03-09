@@ -117,6 +117,10 @@ Layout/TrailingBlankLines:
 Layout/TrailingWhitespace:
   Enabled: true
 
+Lint/AmbiguousOperator:
+  Exclude:
+    - "app/helpers/*"
+
 Lint/EndAlignment:
   EnforcedStyleAlignWith: variable
 

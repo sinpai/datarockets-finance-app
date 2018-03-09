@@ -26,11 +26,11 @@ class TransactionsController < ApplicationController
   end
 
   def update
-   if @transaction.update(transaction_params)
-     redirect_to root_path
-   else
-     render 'edit'
-   end
+    if @transaction.update(transaction_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
