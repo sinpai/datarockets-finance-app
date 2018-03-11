@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'home_page#show'
   resources :transactions do
     collection do
-      get 'search' => 'transactions#search'
       post 'search' => 'transactions#search'
     end
   end

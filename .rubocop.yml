@@ -124,6 +124,9 @@ Lint/AmbiguousOperator:
 Lint/EndAlignment:
   EnforcedStyleAlignWith: variable
 
+Lint/RequireParentheses:
+  Enabled: true
+
 Metrics/AbcSize:
   Max: 18
 
