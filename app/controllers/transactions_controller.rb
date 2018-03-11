@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_transaction, only: %i[new update destroy edit]
   before_action :perform_search, only: %i[index search]
 
