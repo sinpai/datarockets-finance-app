@@ -32,3 +32,5 @@ en:
       comment: 'Comment'
     new:
       header: 'Add money record'
+    edit:
+      header: 'Edit money record'
