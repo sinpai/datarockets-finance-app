@@ -10,7 +10,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def github
-    sign_in_and_redirect user_from_auth
+    if user_from_auth.persisted?
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success')
+      sign_in_and_redirect user_from_auth
+    else
+      redirect_to new_user_registration_url, alert: user_from_auth_error_messages
+    end
   end
 
   private
