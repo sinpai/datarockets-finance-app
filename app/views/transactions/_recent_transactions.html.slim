@@ -3,9 +3,9 @@
     thead
       tr
         th[scope="col"]= t('.id')
-        th= ('.sum')
-        th= ('.date')
-        th= ('.comment')
+        th= t('.sum')
+        th= t('.date')
+        th= t('.comment')
     tbody
     - @recent_records.each do |record|
       tr
