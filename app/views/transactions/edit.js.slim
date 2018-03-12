@@ -1,2 +1,3 @@
 | $("#modal-window .modal-content .modal-body").html("#{{ j render 'transactions/form'}}");
+| $("#modal-window .modal-title").text("#{escape_javascript(t('.edit_transaction'))}");
 | $("#modal-window").modal('show');
