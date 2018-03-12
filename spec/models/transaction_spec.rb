@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
   before(:all) do
-    12.times { FactoryBot.create(:transaction) }
+    FactoryBot.create_list(:transaction, 12)
   end
 
   describe 'named scope most_recent' do

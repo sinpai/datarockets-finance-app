@@ -35,3 +35,5 @@ en:
       are_you_sure: 'Are you sure?'
     new:
       header: 'Add money record'
+    edit:
+      header: 'Edit money record'

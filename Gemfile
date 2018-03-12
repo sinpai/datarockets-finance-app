@@ -56,6 +56,7 @@ group :development, :test do
   gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'rails-controller-testing'
   gem 'reek'
   gem 'rspec-rails'
   gem 'rubocop-rspec'

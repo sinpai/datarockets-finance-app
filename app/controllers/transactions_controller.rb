@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_transaction, only: %i[update destroy edit]
   before_action :set_new_transaction, only: %i[new index]
   before_action :perform_search, only: %i[index search]
@@ -63,6 +64,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:sum, :date, :comment)
+    params.require(:transaction).permit(:id, :sum, :date, :comment)
   end
 end
