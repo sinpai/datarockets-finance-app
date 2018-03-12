@@ -1,4 +1,8 @@
-h3.header.text-center= t('.activity_header')
+.row
+  .col-md-10
+    h3.header.text-center= t('.activity_header')
+  .col-md-2
+    = link_to 'New transaction', new_transaction_path, { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info pull-right' }
 
 = search_form_for @search, url: search_transactions_path, method: :post do |f|
   = f.label :date
@@ -13,9 +17,6 @@ hr.my-4
 
 .row
   = render 'transactions'
-  .col-md-4
-    h3.text-center= t('.new_transaction')
-    = render 'form'
 
 = will_paginate(@transactions)
 

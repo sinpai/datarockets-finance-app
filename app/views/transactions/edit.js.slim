@@ -1,3 +1,2 @@
-javascript:
-  $("#modal-window .modal-content .modal-body").html("#{escape_javascript(render 'transactions/form')}");
-  $("#modal-window").modal("show");
+| $("#modal-window .modal-content .modal-body").html("#{{ j render 'transactions/form'}}");
+| $("#modal-window").modal('show');

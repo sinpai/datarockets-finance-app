@@ -1,4 +1,4 @@
-.col-md-8
+.col-md-12
   table.table.table-striped.table-hover
     thead
       tr
@@ -14,6 +14,6 @@
         th= record.sum
         th= record.date
         th= record.comment
-        th.d-flex.justify-content-around
-          = link_to 'Edit', edit_transaction_path(record), {remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info' }
-          = link_to 'Delete', transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item'
+        th.d-flex.justify-content-end
+          = link_to 'Edit', edit_transaction_path(record), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
+          = link_to 'Delete', transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'

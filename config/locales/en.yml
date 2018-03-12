@@ -37,3 +37,5 @@ en:
       header: 'Add money record'
     edit:
       header: 'Edit money record'
+    destroy:
+      delete_success: 'Record deleted successfully'

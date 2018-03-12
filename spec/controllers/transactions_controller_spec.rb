@@ -17,7 +17,7 @@ RSpec.describe TransactionsController, type: :controller do
     describe 'POST create transaction' do
       it 'has a 200 status code after create' do
         post :create, params: {transaction: transaction_params}
-        assert_redirected_to root_path
+        assert_redirected_to transactions_path
       end
 
       it 'redirects to new layout and shows failure notice without params' do

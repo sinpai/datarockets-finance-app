@@ -16,10 +16,10 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.transactions.new(transaction_params)
-    if @transaction.save
-      redirect_to transactions_path, notice: t('.success')
-    else
-      render 'new', notice: t('.failure')
+    @transaction.save
+    respond_to do |format|
+      format.html { redirect_to transactions_path, notice: t('.success') }
+      format.js { render layout: false }
     end
   end
 
@@ -27,12 +27,7 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    if @transaction.update(transaction_params)
-      redirect_to root_path
-    else
-      render 'edit'
-    end
-
+    @transaction.update(transaction_params)
     respond_to do |format|
       format.html { redirect_to transactions_path }
       format.js { render layout: false }
@@ -41,9 +36,8 @@ class TransactionsController < ApplicationController
 
   def destroy
     @transaction.destroy
-
     respond_to do |format|
-      format.html { redirect_to transactions_path }
+      format.html { redirect_to transactions_path, notice: t('.delete_success') }
       format.js { render layout: false }
     end
   end
