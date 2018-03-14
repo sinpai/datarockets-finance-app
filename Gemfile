@@ -58,6 +58,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'rails-controller-testing'
   gem 'reek'
+  gem 'require_all'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'

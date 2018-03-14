@@ -15,9 +15,7 @@ class Users::Omniauth
   delegate :email, to: :info
 
   def user
-    user = find_user
-    user ||= create_user
-    user
+    @_user ||= find_user || create_user
   end
 
   def find_user
@@ -33,5 +31,6 @@ class Users::Omniauth
     )
     user.skip_confirmation!
     user.save
+    user
   end
 end
