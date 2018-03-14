@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :authorization do
-    provider "github"
+    provider 'github'
     uid { Faker::Omniauth.github['uid'] }
     user
   end

@@ -23,22 +23,20 @@ class Users::Omniauth
     user.authorizations.create(provider: provider, uid: uid)
   end
 
-  def get_user
+  def initiate_user
     @user = User.where(email: email).first || create_user
   end
 
   def check_auth
-    get_user
+    initiate_user
     create_authorization(@user) if find_authorization(@user).blank?
   end
 
   def create_user
-    user = User.new(
+    User.create(
       email: email,
-      password: Devise.friendly_token[0, 20]
+      password: Devise.friendly_token[0, 20],
+      confirmed_at: Date.current
     )
-    user.skip_confirmation!
-    user.save
-    user
   end
 end
