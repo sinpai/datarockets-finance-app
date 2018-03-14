@@ -2,10 +2,8 @@ en:
   home_page:
     show:
       log_in_warning: 'You should be logged in order to see this page'
-      first_page: 'First page of the app'
-      description: "In the end it's aimed to be personal-finance management app"
-      info: "For now it's just a simple page"
-      learn_more: 'Learn more'
+      first_page: 'Simple app to manage your money'
+      description: "Please fill in money income in the form below"
   shared:
     navbar:
       brand_name: 'Personal Finance App'
@@ -13,3 +11,16 @@ en:
       logout: 'Logout'
       login: 'Login'
       register: 'Register'
+  transactions:
+    create:
+      success: 'Record has been successfully added'
+      failure: 'Some error occured. Please try again'
+    form:
+      submit: 'Add money'
+    recent_transactions:
+      id: 'Id'
+      sum: 'Sum'
+      date: 'Date'
+      comment: 'Comment'
+    new:
+      header: 'Add money record'
