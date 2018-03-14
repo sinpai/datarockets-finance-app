@@ -56,6 +56,8 @@ group :development, :test do
   gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'capybara-screenshot'
+  gem 'capybara-webkit'
   gem 'rails-controller-testing'
   gem 'reek'
   gem 'require_all'

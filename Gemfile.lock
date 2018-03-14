@@ -55,6 +55,12 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    capybara-screenshot (1.0.17)
+      capybara (>= 1.0, < 3)
+      launchy
+    capybara-webkit (1.15.0)
+      capybara (>= 2.3, < 4.0)
+      json
     carrierwave (1.0.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -102,6 +108,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
     jwt (1.5.6)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -314,6 +321,8 @@ DEPENDENCIES
   bootstrap-will_paginate
   byebug
   capybara (~> 2.13)
+  capybara-screenshot
+  capybara-webkit
   carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   devise
