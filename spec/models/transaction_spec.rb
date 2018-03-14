@@ -5,10 +5,9 @@ RSpec.describe Transaction, type: :model do
     FactoryBot.create_list(:transaction, 12)
   end
 
-  describe 'named scope most_recent' do
-    it 'should return only 10 records' do
-      result = Transaction.most_recent
-      result.length.should eq(10)
+  describe '.most_recent' do
+    it 'returns only 10 records' do
+      expect(Transaction.most_recent.length).to eq 10
     end
   end
 end
