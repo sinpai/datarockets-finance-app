@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180305052828) do
   create_table "transactions", force: :cascade do |t|
     t.float "sum"
     t.date "date"
-    t.text "comment"
+    t.string "comment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
