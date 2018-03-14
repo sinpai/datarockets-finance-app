@@ -1,11 +1,11 @@
 require 'spec_helper'
+require 'require_all'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
-require 'support/factory_bot'
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
-require_relative 'support/controller_macros'
+require_all 'spec/support/*.rb'
 
 require 'capybara/rspec'
 ActiveRecord::Migration.maintain_test_schema!
@@ -18,4 +18,5 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
+  config.include OmniauthHelper
 end
