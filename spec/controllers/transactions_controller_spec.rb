@@ -24,7 +24,7 @@ RSpec.describe TransactionsController, type: :controller do
       end
 
       it 'redirects to a activity page' do
-        assert_redirected_to root_path
+        assert_redirected_to transactions_path
       end
 
       it 'redirects to new layout and shows failure notice without params' do
