@@ -16,9 +16,9 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_user.transactions.new(transaction_params)
-    @transaction.save
     respond_to do |format|
-      format.html { redirect_to transactions_path, notice: t('.success') }
+      notice = @transaction.save ? t('.success') : t('.failure')
+      format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
   end
@@ -27,17 +27,17 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    @transaction.update(transaction_params)
     respond_to do |format|
-      format.html { redirect_to transactions_path }
+      notice = @transaction.update(transaction_params) ? t('.success') : t('.failure')
+      format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
   end
 
   def destroy
-    @transaction.destroy
     respond_to do |format|
-      format.html { redirect_to transactions_path, notice: t('.delete_success') }
+      notice = @transaction.destroy ? t('.delete_success') : t('.failure')
+      format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
   end
