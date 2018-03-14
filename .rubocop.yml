@@ -20,6 +20,10 @@ Layout/AccessModifierIndentation:
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
 
+Layout/AlignHash:
+  Exclude:
+    - 'config/initializers/*'
+
 Layout/BlockEndNewline:
   Enabled: true
 
@@ -129,11 +133,13 @@ Metrics/BlockLength:
   Max: 25
   Exclude:
     - 'config/environments/*'
+    - 'config/initializers/*'
 
 Metrics/LineLength:
   Max: 105
   Exclude:
     - 'Gemfile'
+    - 'config/initializers/*'
 
 ModuleLength:
   Max: 100
