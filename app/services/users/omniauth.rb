@@ -6,7 +6,8 @@ class Users::Omniauth
   end
 
   def get
-    user
+    check_auth
+    @user
   end
 
   private
@@ -14,18 +15,25 @@ class Users::Omniauth
   delegate :provider, :uid, :info, to: :auth
   delegate :email, to: :info
 
-  def user
-    @_user ||= find_user || create_user
+  def find_authorization(user)
+    user.authorizations.where(provider: provider, uid: uid).first
   end
 
-  def find_user
-    User.where(provider: provider, uid: uid, email: email).first
+  def create_authorization(user)
+    user.authorizations.create(provider: provider, uid: uid)
+  end
+
+  def get_user
+    @user = User.where(email: email).first || create_user
+  end
+
+  def check_auth
+    get_user
+    create_authorization(@user) if find_authorization(@user).blank?
   end
 
   def create_user
     user = User.new(
-      provider: provider,
-      uid: uid,
       email: email,
       password: Devise.friendly_token[0, 20]
     )
