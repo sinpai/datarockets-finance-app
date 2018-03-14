@@ -134,7 +134,6 @@ Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
     - 'config/initializers/*'
-    - 'spec/**/*'
 
 Metrics/LineLength:
   Max: 105

@@ -1,8 +1,7 @@
 div.jumbotron
-  h2.display-4.text-center= t('.first_page')
-  p.lead.text-center= t('.description')
+  h1.display-3= t('.first_page')
+  p.lead= t('.description')
   hr.my-4
-  .col-md-6.offset-md-3
-    =render partial: 'transactions/form'
-  hr.my-4
-  =render partial: 'transactions/recent_transactions' unless @recent_records.blank?
+  p= t('.info')
+  p.lead
+    a.btn.btn-primary.btn-lg[role="button"]= t('.learn_more')

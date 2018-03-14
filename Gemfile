@@ -42,8 +42,6 @@ gem 'omniauth-google-oauth2'
 gem 'letter_opener'
 # Use carrierwave to save avatars of Users
 gem 'carrierwave', '~> 1.0'
-# Use simple_form for platforms
-gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +49,6 @@ group :development, :test do
   gem 'dotenv-rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'rails-controller-testing'
   gem 'reek'
   gem 'rspec-rails'
   gem 'rubocop-rspec'

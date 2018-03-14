@@ -1,10 +1,8 @@
-require 'faker'
-
 FactoryBot.define do
   factory :transaction do
-    sum { Random.rand(100) }
+    sum 'MyString'
     date '2018-03-05'
-    comment { Faker::Lorem.sentence }
-    user
+    comment 'MyString'
+    user nil
   end
 end
