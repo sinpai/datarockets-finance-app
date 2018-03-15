@@ -16,6 +16,7 @@ en:
       activity_header: 'All transactions'
       search: 'Search'
       new_transaction: 'Add new transaction'
+      new_transaction_button: 'New transaction'
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
@@ -33,6 +34,8 @@ en:
       comment: 'Comment'
       actions: 'Actions'
       are_you_sure: 'Are you sure?'
+      edit_button: 'Edit'
+      delete_button: 'Delete'
     new:
       header: 'Add money record'
       new_transaction: 'Add new transaction'
