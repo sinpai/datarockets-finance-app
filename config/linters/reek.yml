@@ -8,3 +8,9 @@ UncommunicativeMethodName:
   enabled: false
 InstanceVariableAssumption:
   enabled: false
+FeatureEnvy:
+  exclude:
+    - "ApplicationHelper"
+UtilityFunction:
+  exclude:
+    - "ApplicationHelper"

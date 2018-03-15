@@ -44,6 +44,11 @@ gem 'letter_opener'
 gem 'carrierwave', '~> 1.0'
 # Use simple_form for platforms
 gem 'simple_form'
+# Pagination
+gem 'bootstrap-will_paginate'
+gem 'will_paginate', '~> 3.1.0'
+# Filter gem
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

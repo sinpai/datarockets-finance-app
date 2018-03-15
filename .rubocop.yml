@@ -117,8 +117,15 @@ Layout/TrailingBlankLines:
 Layout/TrailingWhitespace:
   Enabled: true
 
+Lint/AmbiguousOperator:
+  Exclude:
+    - "app/helpers/*"
+
 Lint/EndAlignment:
   EnforcedStyleAlignWith: variable
+
+Lint/RequireParentheses:
+  Enabled: true
 
 Metrics/AbcSize:
   Max: 18
@@ -187,6 +194,8 @@ Style/FrozenStringLiteralComment:
 
 Style/HashSyntax:
   EnforcedStyle: ruby19_no_mixed_keys
+  Exclude:
+    - 'app/helpers/*'
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TransactionsController, type: :controller do
   let(:transaction_params) { FactoryBot.attributes_for :transaction }
+  let!(:test_transaction) { FactoryBot.create :transaction }
 
   context 'when logged in' do
     login_user
@@ -28,6 +29,64 @@ RSpec.describe TransactionsController, type: :controller do
 
       it 'redirects to new layout and shows failure notice without params' do
         expect { post :create }.to raise_error ActionController::ParameterMissing
+      end
+    end
+
+    context 'and during edit transaction' do
+      it 'returns correct transaction' do
+        get :edit, params: {id: test_transaction.id}
+        expect(assigns(:transaction)).to eq(test_transaction)
+      end
+    end
+
+    context 'dealing with new sum and comment' do
+      let(:rand_num) { Faker::Number.digit }
+      let(:new_comment) { Faker::Lorem.sentence }
+      let(:params) do
+        {
+          id: test_transaction.id,
+          transaction: {
+            id: test_transaction.id,
+            sum: rand_num,
+            comment: new_comment
+          }
+        }
+      end
+
+      before { put :update, params: params }
+
+      it 'updates transaction' do
+        test_transaction.reload
+        expect(test_transaction.sum).to eq rand_num.to_i
+        expect(test_transaction.comment).to eq new_comment
+      end
+    end
+
+    context 'dealing with incorrect sum' do
+      let(:new_comment) { Faker::Lorem.sentence }
+      let(:params) do
+        {
+          id: test_transaction.id,
+          transaction: {
+            id: test_transaction.id,
+            sum: new_comment,
+            comment: new_comment
+          }
+        }
+      end
+
+      before { put :update, params: params }
+
+      it 'updates transaction' do
+        test_transaction.reload
+        expect(test_transaction.sum).not_to eq new_comment
+      end
+    end
+
+    context 'and after destroying transaction' do
+      it 'destroys transaction properly' do
+        expect { delete :destroy, params: {id: test_transaction.id} }
+          .to change(Transaction, :count).by(-1)
       end
     end
   end

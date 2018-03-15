@@ -12,6 +12,9 @@ en:
       login: 'Login'
       register: 'Register'
   transactions:
+    index:
+      activity_header: 'All transactions'
+      search: 'Search'
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
@@ -22,5 +25,12 @@ en:
       sum: 'Sum'
       date: 'Date'
       comment: 'Comment'
+    transactions:
+      id: 'Id'
+      sum: 'Sum'
+      date: 'Date'
+      comment: 'Comment'
     new:
       header: 'Add money record'
+    edit:
+      header: 'Edit money record'
