@@ -17,17 +17,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  Capybara.save_path = '/tmp'
-  Capybara::Screenshot.autosave_on_failure = true
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
-  Capybara.javascript_driver = :webkit
-  Capybara.default_max_wait_time = 10
-  Capybara.default_driver = :webkit
-
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.include OmniauthHelper
   config.include FeatureTestsHelper
+  config.include CapybaraHelper
 end

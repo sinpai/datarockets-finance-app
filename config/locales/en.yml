@@ -1,4 +1,7 @@
 en:
+  layouts:
+    application:
+      title: 'Datarockets Finance App'
   home_page:
     show:
       log_in_warning: 'You should be logged in order to see this page'

@@ -5,7 +5,7 @@ describe Users::Omniauth do
 
   describe 'user creation' do
     it 'returns a user' do
-      user = Users::Omniauth.new(auth).get
+      user = described_class.new(auth).get
       expect(user).to be_a_kind_of(User)
     end
   end
