@@ -20,7 +20,7 @@ module FeatureTestsHelper
       new_comment += 'Updated'
     end
     within '#modal-window .modal-body form' do
-      fill_in 'transaction[sum]', with: rand_num
+      fill_in 'transaction[amount]', with: rand_num
       select day_in_past, from: 'transaction[date(3i)]'
       fill_in 'transaction[comment]', with: new_comment
     end

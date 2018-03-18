@@ -59,7 +59,7 @@ RSpec.describe TransactionsController, type: :controller do
       end
 
       it 'has a correct number' do
-        expect(test_transaction.sum).to eq rand_num.to_i
+        expect(test_transaction.amount).to eq rand_num.to_i
       end
 
       it 'has a correct comment' do
