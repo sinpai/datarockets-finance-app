@@ -3,13 +3,13 @@
     thead
       tr
         th[scope="col"]= t('.id')
-        th= t('.sum')
+        th= t('.amount')
         th= t('.date')
         th= t('.comment')
     tbody
     - @recent_records.each do |record|
       tr
         th.[scope="row"]= record.id
-        th= record.sum
+        th= record.amount
         th= record.date
         th= record.comment

@@ -39,7 +39,7 @@ RSpec.describe TransactionsController, type: :controller do
       end
     end
 
-    context 'dealing with new sum and comment' do
+    context 'dealing with new amount and comment' do
       let(:rand_num) { Faker::Number.digit }
       let(:new_comment) { Faker::Lorem.sentence }
       let(:params) do
@@ -47,7 +47,7 @@ RSpec.describe TransactionsController, type: :controller do
           id: test_transaction.id,
           transaction: {
             id: test_transaction.id,
-            sum: rand_num,
+            amount: rand_num,
             comment: new_comment
           }
         }
@@ -57,19 +57,19 @@ RSpec.describe TransactionsController, type: :controller do
 
       it 'updates transaction' do
         test_transaction.reload
-        expect(test_transaction.sum).to eq rand_num.to_i
+        expect(test_transaction.amount).to eq rand_num.to_i
         expect(test_transaction.comment).to eq new_comment
       end
     end
 
-    context 'dealing with incorrect sum' do
+    context 'dealing with incorrect amount' do
       let(:new_comment) { Faker::Lorem.sentence }
       let(:params) do
         {
           id: test_transaction.id,
           transaction: {
             id: test_transaction.id,
-            sum: new_comment,
+            amount: new_comment,
             comment: new_comment
           }
         }
@@ -79,7 +79,7 @@ RSpec.describe TransactionsController, type: :controller do
 
       it 'updates transaction' do
         test_transaction.reload
-        expect(test_transaction.sum).not_to eq new_comment
+        expect(test_transaction.amount).not_to eq new_comment
       end
     end
 

@@ -7,6 +7,5 @@ nav.navbar.navbar-toggleable-md.navbar-inverse.bg-primary
     .nav.navbar-nav.navbar-right
       = link_to t('.activity'), transactions_path, class: 'nav-link mr-4'
       - if current_user
-        span.nav.navbar-text.mr-1= t('.balance')
-        span.nav.navbar-text.mr-4= number_to_currency(current_user.user_balance.to_i)
+        = render partial: 'transactions/balance'
       = render partial: 'shared/user_session'
