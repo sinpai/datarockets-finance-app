@@ -1,8 +1,8 @@
 class Transaction < ApplicationRecord
   belongs_to :user
 
-  validates :sum, :date, presence: true
-  validates :sum, numericality: true
+  validates :amount, :date, presence: true
+  validates :amount, numericality: true
 
   scope :most_recent, -> { order(created_at: :desc).limit(most_recent_count) }
 

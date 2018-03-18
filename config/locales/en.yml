@@ -32,12 +32,12 @@ en:
       submit: 'Save'
     recent_transactions:
       id: 'Id'
-      sum: 'Sum'
+      amount: 'Amount'
       date: 'Date'
       comment: 'Comment'
     transactions:
       id: 'Id'
-      sum: 'Sum'
+      amount: 'Amount'
       date: 'Date'
       comment: 'Comment'
       actions: 'Actions'

@@ -1,7 +1,7 @@
 .row
   .col-md-10
-    h5.nav.navbar-text.mr-1= t('.balance')
-    h5.nav.navbar-text.mr-4= number_to_currency(current_user.user_balance.to_i) if current_user
+    h5
+      = render partial: 'balance' if current_user
 .row
   .col-md-10
     h3.header.text-center= t('.activity_header')

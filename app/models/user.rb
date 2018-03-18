@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :authorizations, dependent: :destroy
 
   def user_balance
-    transactions.sum(:sum)
+    transactions.sum(:amount).to_i
   end
 end
