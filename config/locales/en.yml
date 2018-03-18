@@ -15,6 +15,8 @@ en:
     index:
       activity_header: 'All transactions'
       search: 'Search'
+      new_transaction: 'Add new transaction'
+      new_transaction_button: 'New transaction'
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
@@ -30,7 +32,15 @@ en:
       sum: 'Sum'
       date: 'Date'
       comment: 'Comment'
+      actions: 'Actions'
+      are_you_sure: 'Are you sure?'
+      edit_button: 'Edit'
+      delete_button: 'Delete'
     new:
       header: 'Add money record'
+      new_transaction: 'Add new transaction'
     edit:
       header: 'Edit money record'
+      edit_transaction: 'Edit transaction'
+    destroy:
+      delete_success: 'Record deleted successfully'

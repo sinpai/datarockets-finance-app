@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authenticate_user!
+  def authenticate_user!(options = {})
     if user_signed_in?
-      super
+      super(options)
     else
       redirect_to new_user_session_path, notice: t('.log_in_warning')
     end

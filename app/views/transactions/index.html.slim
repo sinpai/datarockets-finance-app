@@ -1,15 +1,30 @@
-h3.header.text-center= t('.activity_header')
+.row
+  .col-md-10
+    h3.header.text-center= t('.activity_header')
+  .col-md-2
+    = link_to t('.new_transaction_button'), new_transaction_path, { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info pull-right' }
 
-div.mx-3
-  = search_form_for @search, url: search_transactions_path, method: :post do |f|
-    = f.label :date
-    div.input-group
-      = f.text_field :date_gteq, class: 'form-control'
-      span class='input-group-addon'
-        | to
-      = f.text_field :date_lteq, class: 'form-control'
-      = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
+= search_form_for @search, url: search_transactions_path, method: :post do |f|
+  = f.label :date
+  div.input-group
+    = f.text_field :date_gteq, class: 'form-control'
+    span class='input-group-addon'
+      | to
+    = f.text_field :date_lteq, class: 'form-control'
+    = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
 
-= render 'transactions'
+hr.my-4
 
-div.mx-3= will_paginate(@transactions)
+.row
+  = render 'transactions'
+
+= will_paginate(@transactions)
+
+div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  ×
+      .modal-body

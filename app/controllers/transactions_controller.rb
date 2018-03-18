@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_transaction, only: %i[update destroy edit]
+  before_action :set_new_transaction, only: %i[new index]
   before_action :perform_search, only: %i[index search]
 
   def index
@@ -11,15 +12,14 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @transaction = current_user.transactions.new
   end
 
   def create
     @transaction = current_user.transactions.new(transaction_params)
-    if @transaction.save
-      redirect_to root_path, notice: t('.success')
-    else
-      render 'new', notice: t('.failure')
+    @transaction.save
+    respond_to do |format|
+      format.html { redirect_to transactions_path, notice: t('.success') }
+      format.js { render layout: false }
     end
   end
 
@@ -27,15 +27,19 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    if @transaction.update(transaction_params)
-      redirect_to root_path
-    else
-      render 'edit'
+    @transaction.update(transaction_params)
+    respond_to do |format|
+      format.html { redirect_to transactions_path }
+      format.js { render layout: false }
     end
   end
 
   def destroy
     @transaction.destroy
+    respond_to do |format|
+      format.html { redirect_to transactions_path, notice: t('.delete_success') }
+      format.js { render layout: false }
+    end
   end
 
   private
@@ -47,6 +51,10 @@ class TransactionsController < ApplicationController
 
   def set_transaction
     @transaction = Transaction.find(params[:id])
+  end
+
+  def set_new_transaction
+    @transaction = current_user.transactions.new
   end
 
   def transaction_params

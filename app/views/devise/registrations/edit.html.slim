@@ -12,7 +12,7 @@
               = image_tag(current_user.avatar.url, width: 100)
               br
               = f.label :remove_avatar do
-                = f.check_box :remove_avatar t('.remove_avatar')
+                = f.check_box :remove_avatar, t('.remove_avatar')
             = f.file_field :avatar, class: 'form-control'
             = f.hidden_field :avatar_cache, class: 'form-control'
           .form-group
