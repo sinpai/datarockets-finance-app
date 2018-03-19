@@ -64,6 +64,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 3.1'
   # Factory bot to add fixtures to the tests
   gem 'factory_bot_rails', '~> 4.0'
   # Use faker to fill random data for tests
