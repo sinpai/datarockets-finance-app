@@ -4,7 +4,7 @@ RSpec.describe 'Signup with social accounts', type: :feature do
   context 'when signing up with Github' do
     before { stub_omniauth_provider('github') }
 
-    it 'visit sign up' do
+    it 'creates user' do
       expect do
         visit '/users/sign_in'
         click_link('Sign in with Github')
@@ -12,7 +12,7 @@ RSpec.describe 'Signup with social accounts', type: :feature do
     end
   end
 
-  context 'when signing up with Google' do
+  context 'when signing up with google' do
     before { stub_omniauth_provider('google_oauth2') }
 
     it 'visit sign up' do

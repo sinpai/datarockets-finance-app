@@ -12,7 +12,7 @@ describe Users::Omniauth do
     end
   end
 
-  context 'when signing with Github' do
+  context 'when signing with google' do
     let(:auth) { mock_oauth_provider('google_oauth2') }
 
     context 'when user created' do
