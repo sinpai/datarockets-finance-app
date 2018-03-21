@@ -18,7 +18,7 @@ RSpec.describe 'Transactions', type: :feature do
 
     context 'when adding new transaction' do
       it 'adds new transaction using modal window' do
-        click_on 'Add new transaction'
+        click_on 'New transaction'
         fill_transaction_form(rand_num, new_comment)
         page.should have_content('Record has been successfully added')
       end

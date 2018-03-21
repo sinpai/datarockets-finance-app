@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :authorizations, dependent: :destroy
   has_many :categories, dependent: :destroy
 
-  def user_balance
+  def balance
     transactions.sum(:amount).to_i
   end
 end

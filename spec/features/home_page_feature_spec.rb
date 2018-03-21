@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Home page content', type: :feature do
   let(:user) { create :user }
 
-  it 'Check correct redirect' do
+  it 'checks correct redirect' do
     visit '/'
     expect(page).to have_content 'You should be logged in order to see this page'
   end
