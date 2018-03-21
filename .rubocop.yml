@@ -209,3 +209,6 @@ Style/RedundantReturn:
 Style/StringLiterals:
   EnforcedStyle: single_quotes
   ConsistentQuotesInMultiline: true
+
+Style/StructInheritance:
+  Enabled: false
