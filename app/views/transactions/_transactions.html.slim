@@ -4,16 +4,12 @@
       tr
         th[scope="col"]= t('.id')
         th= t('.amount')
-        th= t('.date')
-        th= t('.comment')
         th.text-center= t('.actions')
     tbody
     - @transactions.each do |record|
       tr
         th.[scope="row"]= record.id
         th= record.amount
-        th= record.date
-        th= record.comment
         th.d-flex.justify-content-end
           = link_to t('.edit_button'), edit_transaction_path(record), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
           = link_to t('.delete_button'), transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'

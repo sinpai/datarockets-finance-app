@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Transactions', type: :feature do
   context 'when logged in' do
     let(:rand_num) { Faker::Number.digit.to_i }
-    let(:new_comment) { Faker::Lorem.sentence }
-    let(:day_in_past) { Date.current.day - 3 }
     let(:user) { create :user }
 
     before do
@@ -19,7 +17,7 @@ RSpec.describe 'Transactions', type: :feature do
     context 'when adding new transaction' do
       it 'adds new transaction using modal window' do
         click_on 'New transaction'
-        fill_transaction_form(rand_num, new_comment)
+        fill_transaction_form(rand_num)
         page.should have_content('Record has been successfully added')
       end
     end
@@ -27,7 +25,7 @@ RSpec.describe 'Transactions', type: :feature do
     context 'when editing transaction' do
       it 'edits existing transaction using modal window' do
         click_on 'Edit', match: :first
-        fill_transaction_form(rand_num, new_comment, true)
+        fill_transaction_form(rand_num, true)
         page.should have_content('Record has been updated successfully')
       end
     end

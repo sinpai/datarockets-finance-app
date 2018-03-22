@@ -1,0 +1,8 @@
+= search_form_for @search, url: search_transactions_path, method: :post do |f|
+  = f.label :date
+  div.input-group
+    = f.text_field :date_gteq, class: 'form-control'
+    span class='input-group-addon'
+      | to
+    = f.text_field :date_lteq, class: 'form-control'
+    = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
