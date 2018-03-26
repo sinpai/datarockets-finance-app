@@ -88,6 +88,9 @@ Layout/FirstParameterIndentation:
 Layout/LeadingCommentSpace:
   Enabled: true
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
 
