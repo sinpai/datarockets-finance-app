@@ -16,14 +16,7 @@ en:
       logout: 'Logout'
       login: 'Login'
       register: 'Register'
-  transactions:
-    index:
-      balance: 'Balance: '
-      activity_header: 'All transactions'
-      search: 'Search'
-      new_transaction: 'Add new transaction'
-      log_in_warning: 'Please sign in before accessing this section'
-      new_transaction_button: 'New transaction'
+  balance_transactions:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
@@ -32,6 +25,23 @@ en:
       failure: 'Some error occured. Please try again'
     form:
       submit: 'Save'
+    new:
+      header: 'Add money record'
+      new_transaction: 'Add new transaction'
+    edit:
+      header: 'Edit money record'
+      edit_transaction: 'Edit transaction'
+    destroy:
+      delete_success: 'Record deleted successfully'
+      failure: 'Some error occured. Please try again'
+  transactions:
+    index:
+      balance: 'Balance: '
+      activity_header: 'All transactions'
+      search: 'Search'
+      new_transaction: 'Add new transaction'
+      log_in_warning: 'Please sign in before accessing this section'
+      new_transaction_button: 'New transaction'
     recent_transactions:
       id: 'Id'
       amount: 'Amount'
@@ -46,15 +56,6 @@ en:
       are_you_sure: 'Are you sure?'
       edit_button: 'Edit'
       delete_button: 'Delete'
-    new:
-      header: 'Add money record'
-      new_transaction: 'Add new transaction'
-    edit:
-      header: 'Edit money record'
-      edit_transaction: 'Edit transaction'
-    destroy:
-      delete_success: 'Record deleted successfully'
-      failure: 'Some error occured. Please try again'
   categories:
     form:
       add_category: 'Add category'
