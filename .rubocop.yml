@@ -86,6 +86,9 @@ Layout/FirstParameterIndentation:
 Layout/LeadingCommentSpace:
   Enabled: true
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
 
@@ -209,3 +212,6 @@ Style/RedundantReturn:
 Style/StringLiterals:
   EnforcedStyle: single_quotes
   ConsistentQuotesInMultiline: true
+
+Style/StructInheritance:
+  Enabled: false

@@ -3,26 +3,22 @@ module OmniauthHelper
     OmniAuth.config.test_mode = true
   end
 
-  def mock_github_provider
-    OmniAuth.config.add_mock(:github, omniauth_hash)
+  def mock_oauth_provider(provider)
+    OmniAuth.config.add_mock(provider.to_sym, omniauth_hash(provider))
+  end
+
+  def stub_omniauth_provider(provider)
+    OmniAuth.config.mock_auth[provider.to_sym] = OmniAuth::AuthHash.new(omniauth_hash(provider))
   end
 
   private
 
-  def omniauth_hash
+  def omniauth_hash(provider)
     {
-      'provider' => 'github',
-      'uid' => '12345',
-      'info' => {
-        'name' => 'test',
-        'email' => 'test@github.com',
-        'nickname' => 'test'
-      },
-      'extra' => {
-        'raw_info' => {
-          'location' => 'San Francisco',
-          'gravatar_id' => '123456789'
-        }
+      provider: provider,
+      uid: Faker::Number.number(10),
+      info: {
+        email: Faker::Internet.email
       }
     }
   end
