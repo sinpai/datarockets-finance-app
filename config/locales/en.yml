@@ -1,4 +1,7 @@
 en:
+  layouts:
+    application:
+      title: 'Datarockets Finance App'
   home_page:
     show:
       log_in_warning: 'You should be logged in order to see this page'
@@ -18,6 +21,7 @@ en:
       activity_header: 'All transactions'
       search: 'Search'
       new_transaction: 'Add new transaction'
+      log_in_warning: 'Please sign in before accessing this section'
       new_transaction_button: 'New transaction'
     create:
       success: 'Record has been successfully added'
@@ -26,7 +30,7 @@ en:
       success: 'Record has been updated successfully'
       failure: 'Some error occured. Please try again'
     form:
-      submit: 'Add money'
+      submit: 'Save'
     recent_transactions:
       id: 'Id'
       amount: 'Amount'

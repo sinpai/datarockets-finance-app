@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Transaction, type: :model do
-  before(:all) do
+  before do
     FactoryBot.create_list(:transaction, 12)
   end
 

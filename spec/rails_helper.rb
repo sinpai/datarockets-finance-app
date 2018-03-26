@@ -8,6 +8,7 @@ require 'rspec/rails'
 require_all 'spec/support/*.rb'
 
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
@@ -19,4 +20,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.include OmniauthHelper
+  config.include FeatureTestsHelper
+  config.include CapybaraHelper
+  config.include TransactionsFeatureHelper
 end

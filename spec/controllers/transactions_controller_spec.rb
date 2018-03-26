@@ -7,14 +7,14 @@ RSpec.describe TransactionsController, type: :controller do
   context 'when logged in' do
     login_user
 
-    context 'and after transaction initialized' do
+    context 'when transaction initialized' do
       it 'does not initialize a transaction not logged in' do
         get :new
         expect(assigns(:transaction)).to be_a_new(Transaction)
       end
     end
 
-    context 'and after transaction creation' do
+    context 'with transaction creation' do
       before do
         post :create, params: {transaction: transaction_params}
       end
@@ -32,14 +32,14 @@ RSpec.describe TransactionsController, type: :controller do
       end
     end
 
-    context 'and during edit transaction' do
+    context 'with during edit transaction' do
       it 'returns correct transaction' do
         get :edit, params: {id: test_transaction.id}
         expect(assigns(:transaction)).to eq(test_transaction)
       end
     end
 
-    context 'dealing with new amount and comment' do
+    context 'when dealing with new amount and comment' do
       let(:rand_num) { Faker::Number.digit }
       let(:new_comment) { Faker::Lorem.sentence }
       let(:params) do
@@ -53,16 +53,21 @@ RSpec.describe TransactionsController, type: :controller do
         }
       end
 
-      before { put :update, params: params }
-
-      it 'updates transaction' do
+      before do
+        put :update, params: params
         test_transaction.reload
+      end
+
+      it 'has a correct number' do
         expect(test_transaction.amount).to eq rand_num.to_i
+      end
+
+      it 'has a correct comment' do
         expect(test_transaction.comment).to eq new_comment
       end
     end
 
-    context 'dealing with incorrect amount' do
+    context 'when dealing with incorrect amount' do
       let(:new_comment) { Faker::Lorem.sentence }
       let(:params) do
         {
@@ -83,7 +88,7 @@ RSpec.describe TransactionsController, type: :controller do
       end
     end
 
-    context 'and after destroying transaction' do
+    context 'when destroying transaction' do
       it 'destroys transaction properly' do
         expect { delete :destroy, params: {id: test_transaction.id} }
           .to change(Transaction, :count).by(-1)
@@ -92,14 +97,14 @@ RSpec.describe TransactionsController, type: :controller do
   end
 
   context 'when logged out' do
-    context 'and after transaction initialized' do
+    context 'with after transaction initialized' do
       it 'does not initialize a transaction not logged in' do
         get :new
         expect(response).to redirect_to new_user_session_path
       end
     end
 
-    context 'and after transaction creation' do
+    context 'with after transaction creation' do
       before do
         post :create, params: {transaction: transaction_params}
       end

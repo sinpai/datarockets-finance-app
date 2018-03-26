@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     create_list(:transaction, 10, user: user, amount: 10)
   end
 
-  context '.balance' do
+  context 'when checking user_balance' do
     it 'returns correct total of balance' do
       expect(user.balance).to eq 100
     end
