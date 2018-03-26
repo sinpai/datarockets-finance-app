@@ -68,7 +68,7 @@ RSpec.describe TransactionsController, type: :controller do
           id: test_transaction.id,
           transaction: {
             id: test_transaction.id,
-            amount: new_value
+            amount: new_amount
           }
         }
       end
