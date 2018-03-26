@@ -2,6 +2,7 @@ class Users::Creator < Struct.new(:email)
   def call
     create_user
     add_default_categories
+    @user
   end
 
   private
@@ -16,6 +17,5 @@ class Users::Creator < Struct.new(:email)
 
   def add_default_categories
     Users::DefaultCategoriesCreator.new(@user).call
-    @user
   end
 end
