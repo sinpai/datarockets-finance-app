@@ -15,4 +15,4 @@ UtilityFunction:
   exclude:
     - "ApplicationHelper"
 TooManyStatements:
-  max_statements: 7
+  max_statements: 8
