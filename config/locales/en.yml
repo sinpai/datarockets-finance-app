@@ -7,12 +7,14 @@ en:
   shared:
     navbar:
       brand_name: 'Personal Finance App'
+      balance: 'Balance: '
     user_session:
       logout: 'Logout'
       login: 'Login'
       register: 'Register'
   transactions:
     index:
+      balance: 'Balance: '
       activity_header: 'All transactions'
       search: 'Search'
       new_transaction: 'Add new transaction'
@@ -20,16 +22,19 @@ en:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
+    update:
+      success: 'Record has been updated successfully'
+      failure: 'Some error occured. Please try again'
     form:
       submit: 'Add money'
     recent_transactions:
       id: 'Id'
-      sum: 'Sum'
+      amount: 'Amount'
       date: 'Date'
       comment: 'Comment'
     transactions:
       id: 'Id'
-      sum: 'Sum'
+      amount: 'Amount'
       date: 'Date'
       comment: 'Comment'
       actions: 'Actions'
@@ -44,3 +49,4 @@ en:
       edit_transaction: 'Edit transaction'
     destroy:
       delete_success: 'Record deleted successfully'
+      failure: 'Some error occured. Please try again'
