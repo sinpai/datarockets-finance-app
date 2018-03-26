@@ -6,4 +6,5 @@ Rails.application.routes.draw do
       post 'search' => 'transactions#search'
     end
   end
+  resources :categories, except: :show
 end

@@ -11,6 +11,7 @@ en:
     navbar:
       brand_name: 'Personal Finance App'
       balance: 'Balance: '
+      categories: 'Categories'
     user_session:
       logout: 'Logout'
       login: 'Login'
@@ -54,3 +55,24 @@ en:
     destroy:
       delete_success: 'Record deleted successfully'
       failure: 'Some error occured. Please try again'
+  categories:
+    form:
+      add_category: 'Add category'
+    new:
+      new_category: 'New category'
+    index:
+      all_categories: 'All categories'
+      log_in_warning: 'Please log in first'
+      new_category: 'Add new category'
+    edit:
+      edit_category: 'Edit category'
+    create:
+      category_created: 'You successfully create category.'
+      category_not_created: 'Category not create'
+    update:
+      category_updated: 'You successfully update category'
+      category_not_updated: 'Category not update'
+    destroy:
+      deleted_category_success: 'You successfully deleted category.'
+    category:
+      are_you_sure: "Are you sure?"

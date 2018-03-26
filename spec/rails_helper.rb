@@ -22,5 +22,6 @@ RSpec.configure do |config|
   config.include OmniauthHelper
   config.include FeatureTestsHelper
   config.include CapybaraHelper
+  config.include ShouldaHelper
   config.include TransactionsFeatureHelper
 end
