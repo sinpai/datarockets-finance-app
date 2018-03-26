@@ -62,7 +62,7 @@ RSpec.describe TransactionsController, type: :controller do
     end
 
     context 'when dealing with incorrect amount' do
-      let(:new_value) { Faker::Lorem.sentence }
+      let(:new_amount) { Faker::Lorem.sentence }
       let(:params) do
         {
           id: test_transaction.id,

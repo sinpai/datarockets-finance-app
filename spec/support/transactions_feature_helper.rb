@@ -1,7 +1,9 @@
+require 'faker'
+
 module TransactionsFeatureHelper
   def fill_transaction_form(rand_num, edit = false)
     page.should have_css('#modal-window', visible: true)
-    rand_num += 23 if edit
+    Faker::Number.digit.to_i if edit
     fill_data_in_fields(rand_num)
   end
 
