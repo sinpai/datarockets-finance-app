@@ -5,7 +5,9 @@ PrimaDonnaMethod:
 NestedIterators:
   max_allowed_nesting: 2
 UncommunicativeMethodName:
-  enabled: false
+  enabled: true
+  accept:
+    - google_oauth2
 InstanceVariableAssumption:
   enabled: false
 FeatureEnvy:
