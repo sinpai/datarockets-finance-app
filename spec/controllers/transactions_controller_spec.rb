@@ -77,7 +77,7 @@ RSpec.describe TransactionsController, type: :controller do
 
       it 'updates transaction' do
         test_transaction.reload
-        expect(test_transaction.amount).not_to eq new_value
+        expect(test_transaction.amount).not_to eq new_amount
       end
     end
 
