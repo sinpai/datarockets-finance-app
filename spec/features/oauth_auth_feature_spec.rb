@@ -12,11 +12,11 @@ RSpec.describe 'Signup with social accounts', type: :feature do
   end
 
   context 'when signing up with google' do
-    before { stub_omniauth_provider('google_oauth2') }
+    before { stub_omniauth_provider('google') }
 
     it 'creates user' do
       visit '/users/sign_in'
-      click_link('Sign in with Google Oauth2')
+      click_link('Sign in with Google')
       page.should have_content('Successfully authenticated from social account.')
     end
   end

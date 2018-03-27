@@ -6,8 +6,6 @@ NestedIterators:
   max_allowed_nesting: 2
 UncommunicativeMethodName:
   enabled: true
-  accept:
-    - google_oauth2
 InstanceVariableAssumption:
   enabled: false
 FeatureEnvy:
