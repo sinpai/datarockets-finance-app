@@ -8,15 +8,6 @@
   .col-md-2
     = link_to t('.new_transaction_button'), new_transaction_path, { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info pull-right' }
 
-= search_form_for @search, url: search_transactions_path, method: :post do |f|
-  = f.label :date
-  div.input-group
-    = f.text_field :date_gteq, class: 'form-control'
-    span class='input-group-addon'
-      | to
-    = f.text_field :date_lteq, class: 'form-control'
-    = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
-
 hr.my-4
 
 .row

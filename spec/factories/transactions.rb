@@ -2,9 +2,8 @@ require 'faker'
 
 FactoryBot.define do
   factory :transaction do
-    amount { Random.rand(100) }
-    date '2018-03-05'
-    comment { Faker::Lorem.sentence }
+    transactinable { |transaction| transaction.association(:balance_transaction) }
+    amount { Faker::Number.digit.to_i }
     user
   end
 end

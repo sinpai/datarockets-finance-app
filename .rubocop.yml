@@ -165,6 +165,9 @@ Rails:
 Rails/Date:
   EnforcedStyle: flexible
 
+Rails/InverseOf:
+  Enabled: false
+
 Rails/TimeZone:
   EnforcedStyle: flexible
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319063011) do
+ActiveRecord::Schema.define(version: 20180322041822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20180319063011) do
     t.index ["user_id"], name: "index_authorizations_on_user_id"
   end
 
+  create_table "balance_transactions", force: :cascade do |t|
+    t.string "comment"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.float "amount", default: 0.0, null: false
@@ -33,13 +40,26 @@ ActiveRecord::Schema.define(version: 20180319063011) do
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
+  create_table "category_transactions", force: :cascade do |t|
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cross_categories_transactions", force: :cascade do |t|
+    t.integer "category_from_id"
+    t.integer "category_to_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.float "amount"
-    t.date "date"
-    t.text "comment"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transactinable_type"
+    t.integer "transactinable_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

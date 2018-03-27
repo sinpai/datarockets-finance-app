@@ -1,5 +1,3 @@
 = simple_form_for @transaction, html: { class: 'form-horizontal' } do |f|
   = f.input :amount
-  = f.input :date, as: :date, order: [:day, :month, :year]
-  = f.input :comment
   = f.button :submit, t('.submit'), class: 'btn btn-primary'
