@@ -5,7 +5,7 @@ PrimaDonnaMethod:
 NestedIterators:
   max_allowed_nesting: 2
 UncommunicativeMethodName:
-  enabled: false
+  enabled: true
 InstanceVariableAssumption:
   enabled: false
 FeatureEnvy:
