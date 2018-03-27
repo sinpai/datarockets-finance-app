@@ -13,7 +13,7 @@ describe Users::Omniauth do
   end
 
   context 'when signing with google' do
-    let(:auth) { mock_oauth_provider('google_oauth2') }
+    let(:auth) { mock_oauth_provider('google') }
 
     context 'when user created' do
       it 'returns a user' do
