@@ -13,10 +13,11 @@ class Users::Omniauth < Struct.new(:auth)
   end
 
   def user
-    @_user ||= User.find_or_create_by(email: email) do |user|
-      user.password = Devise.friendly_token[0, 20]
-      user.confirmed_at = Date.current
-    end
+    @_user ||= User.find_by(email: email) || create_user
+  end
+
+  def create_user
+    Users::Creator.new(email).call
   end
 
   delegate :provider, :uid, :info, to: :auth
