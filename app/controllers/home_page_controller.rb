@@ -2,8 +2,7 @@ class HomePageController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @balance_transaction = BalanceTransaction.new
-    @balance_transaction.transactions.build
+    @form = BalanceTransactionForm.new(BalanceTransaction.new, transactions: Transaction.new)
     @recent_records = current_user.transactions.most_recent
   end
 end

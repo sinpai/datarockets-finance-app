@@ -1,105 +1,45 @@
 require 'rails_helper'
 
 RSpec.describe TransactionsController, type: :controller do
-  let(:transaction_params) { FactoryBot.attributes_for :transaction }
-  let!(:test_transaction) { FactoryBot.create :transaction }
+  let(:transaction_params) { attributes_for :transaction }
+  let(:test_transaction) { create :transaction }
 
   context 'when logged in' do
     login_user
 
-    context 'when transaction initialized' do
-      it 'does not initialize a transaction not logged in' do
-        get :new
-        expect(assigns(:transaction)).to be_a_new(Transaction)
+    describe 'GET #index' do
+      it 'has a 200 status code' do
+        get :index
+        expect(response.status).to eq(200)
       end
     end
 
-    context 'with transaction creation' do
+    describe 'GET #search' do
+      it 'has a 200 status code' do
+        get :search
+        expect(response.status).to eq(200)
+      end
+    end
+  end
+
+  context 'when logged out' do
+    context 'when loading activity' do
       before do
-        post :create, params: {transaction: transaction_params}
+        get :index
       end
 
       it 'has a 302 status code' do
         expect(response.status).to eq(302)
       end
 
-      it 'redirects to a activity page' do
-        assert_redirected_to transactions_path
-      end
-
-      it 'redirects to new layout and shows failure notice without params' do
-        expect { post :create }.to raise_error ActionController::ParameterMissing
+      it 'redirects to a new user session' do
+        assert_redirected_to new_user_session_path
       end
     end
 
-    context 'with during edit transaction' do
-      it 'returns correct transaction' do
-        get :edit, params: {id: test_transaction.id}
-        expect(assigns(:transaction)).to eq(test_transaction)
-      end
-    end
-
-    context 'when dealing with new amount' do
-      let(:rand_num) { Faker::Number.digit }
-      let(:params) do
-        {
-          id: test_transaction.id,
-          transaction: {
-            id: test_transaction.id,
-            amount: rand_num
-          }
-        }
-      end
-
+    context 'when loading search' do
       before do
-        put :update, params: params
-        test_transaction.reload
-      end
-
-      it 'has a correct number' do
-        expect(test_transaction.amount).to eq rand_num.to_i
-      end
-    end
-
-    context 'when dealing with incorrect amount' do
-      let(:new_amount) { Faker::Lorem.sentence }
-      let(:params) do
-        {
-          id: test_transaction.id,
-          transaction: {
-            id: test_transaction.id,
-            amount: new_amount
-          }
-        }
-      end
-
-      before { put :update, params: params }
-
-      it 'updates transaction' do
-        test_transaction.reload
-        expect(test_transaction.amount).not_to eq new_amount
-      end
-    end
-
-    context 'when destroying transaction' do
-      it 'destroys transaction properly' do
-        expect { delete :destroy, params: {id: test_transaction.id} }
-          .to change(Transaction, :count).by(-1)
-      end
-    end
-  end
-
-  context 'when logged out' do
-    context 'with after transaction initialized' do
-      it 'does not initialize a transaction not logged in' do
-        get :new
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
-
-    context 'with after transaction creation' do
-      before do
-        post :create, params: {transaction: transaction_params}
+        get :search
       end
 
       it 'has a 302 status code' do

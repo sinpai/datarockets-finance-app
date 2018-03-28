@@ -2,14 +2,16 @@
   table.table.table-striped.table-hover
     thead
       tr
-        th[scope="col"]= t('.id')
+        th[scope="col"]= t('.date')
         th= t('.amount')
+        th= t('.comment')
         th.text-center= t('.actions')
     tbody
     - @transactions.each do |record|
       tr
-        th.[scope="row"]= record.id
+        th= record.transactinable.date
         th= record.amount
+        th= record.transactinable.comment
         th.d-flex.justify-content-end
-          = link_to t('.edit_button'), edit_balance_transaction_path(record), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
+          = link_to t('.edit_button'), edit_balance_transaction_path(record.transactinable.id), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
           = link_to t('.delete_button'), balance_transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'

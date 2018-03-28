@@ -1,5 +1,4 @@
 class BalanceTransactions::Creator
-
   Args = Struct.new(:date, :comment, :amount, :user_id)
 
   def initialize(args)

@@ -48,7 +48,7 @@ en:
       date: 'Date'
       comment: 'Comment'
     transactions:
-      id: 'Id'
+      date: 'Date'
       amount: 'Amount'
       date: 'Date'
       comment: 'Comment'

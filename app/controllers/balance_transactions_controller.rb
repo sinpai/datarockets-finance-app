@@ -1,28 +1,35 @@
 class BalanceTransactionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :create_new_form, only: %i[new create]
+  before_action :create_edit_form, only: %i[edit update]
 
   def new
-    @balance_transaction = BalanceTransaction.new
-    @balance_transaction.transactions.build
   end
 
   def create
-    byebug
     respond_to do |format|
-      notice = BalanceTransactions::Creator.new(create_params).call ? t('.success') : t('.failure')
+      notice = if @form.validate(balance_transaction_params) &&
+                  BalanceTransactions::Creator.new(create_params).call
+        t('.success')
+      else
+        t('.failure')
+      end
       format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
   end
 
   def edit
-    @balance_transaction = transaction.transactinable
   end
 
   def update
-    byebug
     respond_to do |format|
-      notice = BalanceTransactions::Updater.new(update_params).call ? t('.success') : t('.failure')
+      notice = if @form.validate(balance_transaction_params) &&
+                  BalanceTransactions::Updater.new(update_params).call
+        t('.success')
+      else
+        t('.failure')
+      end
       format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
@@ -30,7 +37,11 @@ class BalanceTransactionsController < ApplicationController
 
   def destroy
     respond_to do |format|
-      notice = BalanceTransactions::Destroyer.new(balance_transaction_params[:id]) ? t('.delete_success') : t('.failure')
+      notice = if BalanceTransactions::Destroyer.new(params[:id]).call
+        t('.delete_success')
+      else
+        notice = t('.failure')
+      end
       format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
@@ -43,7 +54,7 @@ class BalanceTransactionsController < ApplicationController
       :id,
       :comment,
       :date,
-      transactions: {}
+      transactions_attributes: %i[id amount]
     )
   end
 
@@ -51,7 +62,7 @@ class BalanceTransactionsController < ApplicationController
     {
       date: balance_transaction_params[:date],
       comment: balance_transaction_params[:comment],
-      amount: balance_transaction_params[:transactions][:amount]
+      amount: balance_transaction_params[:transactions_attributes][:amount]
     }
   end
 
@@ -60,14 +71,22 @@ class BalanceTransactionsController < ApplicationController
   end
 
   def update_params
-    params_to_hash.merge(transaction_id: @balance_transaction.transactions.last.id)
+    params_to_hash.merge(transaction_id: balance_transaction.transactions.last.id)
   end
 
   def transaction
-    @_transaction ||= Transaction.find(params[:id])
+    @_transaction = @_balance_transaction.transactions.last || Transaction.find(params[:id])
   end
 
   def balance_transaction
-    @_balance_transaction ||= transaction.transactinable
+    @_balance_transaction = BalanceTransaction.find(params[:id]) || transaction.transactinable
+  end
+
+  def create_new_form
+    @form = BalanceTransactionForm.new(BalanceTransaction.new, transactions: Transaction.new)
+  end
+
+  def create_edit_form
+    @form = BalanceTransactionForm.new(balance_transaction, transactions: transaction)
   end
 end
