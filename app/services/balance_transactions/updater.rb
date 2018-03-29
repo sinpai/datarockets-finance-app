@@ -1,8 +1,9 @@
 class BalanceTransactions::Updater
-  Args = Struct.new(:date, :comment, :amount, :transaction_id)
-
-  def initialize(args)
-    @args = Args.new(args[:date], args[:comment], args[:amount], args[:transaction_id])
+  def initialize(date:, comment:, amount:, transaction_id:)
+    @date = date
+    @comment = comment
+    @amount = amount
+    @transaction_id = transaction_id
   end
 
   def call
@@ -10,23 +11,22 @@ class BalanceTransactions::Updater
       update_balance_transaction
       update_transaction_data
     end
-    @_transaction
   end
 
   private
 
   def update_balance_transaction
     transaction.transactinable.update(
-      comment: @args.comment,
-      date: @args.date
+      comment: @comment,
+      date: @date
     )
   end
 
   def transaction
-    @_transaction = Transaction.find(@args[:transaction_id])
+    @transaction = Transaction.find(@transaction_id)
   end
 
   def update_transaction_data
-    @_transaction.update(amount: @args.amount)
+    @transaction.update(amount: @amount)
   end
 end

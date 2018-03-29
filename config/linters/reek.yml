@@ -18,3 +18,5 @@ UtilityFunction:
     - "ApplicationHelper"
 TooManyStatements:
   max_statements: 8
+TooManyInstanceVariables:
+  max_instance_variables: 5
