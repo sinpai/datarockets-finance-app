@@ -7,7 +7,14 @@ class Transaction < ApplicationRecord
 
   scope :most_recent, -> { order(created_at: :desc).limit(most_recent_count) }
 
+  scope :balance_transactions, -> { where(transactinable_type: 'BalanceTransaction') }
+  scope :category_transactions, -> { where(transactinable_type: 'CategoryTransaction') }
+
   def self.most_recent_count
     10
+  end
+
+  def balance_transaction?
+    transactinable.is_a?(BalanceTransaction)
   end
 end

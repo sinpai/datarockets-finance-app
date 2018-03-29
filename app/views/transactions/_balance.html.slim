@@ -1,2 +1,5 @@
-span.nav.navbar-text.mr-1= t('.balance')
-span.nav.navbar-text.mr-4= number_to_currency(current_user.balance)
+div.d-flex
+  span.nav.navbar-text.mr-1= t('.balance')
+  span.nav.navbar-text.mr-4= number_to_currency(current_user.balance)
+  span.nav.navbar-text.mr-1= t('.free_balance')
+  span.nav.navbar-text.mr-4= number_to_currency(current_user.free_balance)

@@ -9,9 +9,10 @@
     tbody
     - @transactions.each do |record|
       tr
-        th= record.transactinable.date
+        th= record.transactinable.try(:date) || record.transactinable.created_at.strftime("%Y-%m-%d")
         th= record.amount
-        th= record.transactinable.comment
+        th= record.transactinable.try(:comment) || "To #{record.transactinable.category.name} category"
         th.d-flex.justify-content-end
-          = link_to t('.edit_button'), edit_balance_transaction_path(record.transactinable.id), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
-          = link_to t('.delete_button'), balance_transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'
+          - if record.balance_transaction?
+            = link_to t('.edit_button'), edit_balance_transaction_path(record.transactinable.id), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
+            = link_to t('.delete_button'), balance_transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'

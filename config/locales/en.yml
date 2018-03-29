@@ -10,7 +10,6 @@ en:
   shared:
     navbar:
       brand_name: 'Personal Finance App'
-      balance: 'Balance: '
       categories: 'Categories'
     user_session:
       logout: 'Logout'
@@ -35,6 +34,9 @@ en:
       delete_success: 'Record deleted successfully'
       failure: 'Some error occured. Please try again'
   transactions:
+    balance:
+      balance: 'Balance: '
+      free_balance: 'Free: '
     index:
       balance: 'Balance: '
       activity_header: 'All transactions'
@@ -76,4 +78,15 @@ en:
     destroy:
       deleted_category_success: 'You successfully deleted category.'
     category:
+      add_money: 'Add money to category'
+      edit: 'Edit'
+      delete: 'Delete'
       are_you_sure: "Are you sure?"
+  category_transactions:
+    form:
+      add_money: 'Add money'
+    new:
+      add_money_to_category_modal_title: 'Add money to category'
+    create:
+      success: 'Money has been added to category successfully'
+      failure: 'Error occured'
