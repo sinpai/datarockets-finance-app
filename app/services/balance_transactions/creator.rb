@@ -11,7 +11,6 @@ class BalanceTransactions::Creator
       create_balance_transaction
       add_transaction_connection
     end
-    @transaction
   end
 
   private
