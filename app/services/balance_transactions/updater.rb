@@ -22,11 +22,11 @@ class BalanceTransactions::Updater
     )
   end
 
-  def transaction
-    @transaction = Transaction.find(@transaction_id)
-  end
-
   def update_transaction_data
     @transaction.update(amount: @amount)
+  end
+
+  def transaction
+    @transaction = Transaction.find(@transaction_id)
   end
 end
