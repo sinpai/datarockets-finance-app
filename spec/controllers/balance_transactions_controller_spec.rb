@@ -25,29 +25,24 @@ RSpec.describe BalanceTransactionsController, type: :controller do
       let(:user) { create(:user) }
 
       let(:attributes) do
-        {
-          balance_transaction: attributes_for(:balance_transaction,
-            transactions_attributes: attributes_for(:transaction))
-        }
+        attributes_for(:balance_transaction, transactions_attributes: attributes_for(:transaction))
       end
 
       it 'redirects after create' do
-        post :create, params: attributes
+        post :create, params: {balance_transaction: attributes}
         expect(response).to redirect_to transactions_path
       end
     end
 
     context 'when not valid' do
       let(:attributes) do
-        {
-          balance_transaction: attributes_for(:balance_transaction,
-            transactions_attributes: attributes_for(:transaction, amount: nil))
-        }
+        attributes_for(:balance_transaction,
+          transactions_attributes: attributes_for(:transaction, amount: nil))
       end
 
       it 'does not create new transaction' do
         expect do
-          post :create, params: attributes
+          post :create, params: {balance_transaction: attributes}
         end.not_to change(Transaction, :count)
       end
     end

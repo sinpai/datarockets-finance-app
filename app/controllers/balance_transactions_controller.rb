@@ -49,13 +49,12 @@ class BalanceTransactionsController < ApplicationController
 
   private
 
-  def balance_transaction_params
-    params.require(:balance_transaction).permit(
-      :id,
-      :comment,
-      :date,
-      transactions_attributes: %i[id amount]
-    )
+  def create_params
+    params_to_hash.merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params_to_hash.merge(transaction_id: balance_transaction.transactions.last.id)
   end
 
   def params_to_hash
@@ -66,20 +65,13 @@ class BalanceTransactionsController < ApplicationController
     }
   end
 
-  def create_params
-    params_to_hash.merge(user_id: current_user.id)
-  end
-
-  def update_params
-    params_to_hash.merge(transaction_id: balance_transaction.transactions.last.id)
-  end
-
-  def transaction
-    @_transaction = @_balance_transaction.transactions.last || Transaction.find(params[:id])
-  end
-
-  def balance_transaction
-    @_balance_transaction = BalanceTransaction.find(params[:id]) || transaction.transactinable
+  def balance_transaction_params
+    params.require(:balance_transaction).permit(
+      :id,
+      :comment,
+      :date,
+      transactions_attributes: %i[id amount]
+    )
   end
 
   def create_new_form
@@ -88,5 +80,13 @@ class BalanceTransactionsController < ApplicationController
 
   def create_edit_form
     @form = BalanceTransactionForm.new(balance_transaction, transactions: transaction)
+  end
+
+  def transaction
+    @_transaction = @_balance_transaction.transactions.last || Transaction.find(params[:id])
+  end
+
+  def balance_transaction
+    @_balance_transaction = BalanceTransaction.find(params[:id]) || transaction.transactinable
   end
 end
