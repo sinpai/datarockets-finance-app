@@ -1,6 +1,5 @@
 class CategoryTransactionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_category, only: :new
 
   def new
   end
@@ -31,9 +30,5 @@ class CategoryTransactionsController < ApplicationController
     params.require(:category_transaction).permit(
       :amount
     )
-  end
-
-  def find_category
-    @category = Category.find(params[:id])
   end
 end

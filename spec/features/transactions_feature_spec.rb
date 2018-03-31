@@ -4,6 +4,7 @@ RSpec.describe 'Transactions', type: :feature do
   context 'when logged in' do
     let(:rand_num) { Faker::Number.digit.to_i }
     let(:user) { create :user }
+    let(:transaction) { create(:transaction, :balance_transactions, user: user) }
 
     before do
       login_like_user(user)

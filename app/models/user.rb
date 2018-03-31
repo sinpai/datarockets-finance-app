@@ -10,10 +10,10 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
 
   def balance
-    transactions.balance_transactions.sum(:amount).to_i
+    transactions.balance_transactions.sum(:amount).to_f
   end
 
   def free_balance
-    balance - categories.reduce(0) { |sum, category| sum + category.amount }
+    balance - categories.sum(:amount)
   end
 end

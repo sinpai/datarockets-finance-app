@@ -33,7 +33,7 @@ class CategoryTransactions::Creator
   end
 
   def category
-    Category.find(@category_id)
+    @_category ||= Category.find(@category_id)
   end
 
   def valid?

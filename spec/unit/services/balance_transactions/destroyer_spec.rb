@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe BalanceTransactions::Destroyer do
   context 'when valid' do
-    let!(:transaction) { create(:transaction) }
+    let!(:transaction) { create(:transaction, :balance_transactions) }
 
     it 'deletes the balance transaction' do
       expect do

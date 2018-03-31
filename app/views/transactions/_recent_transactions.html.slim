@@ -1,13 +1,16 @@
 .col-md-8.offset-md-2
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th[scope="col"]= t('.date')
-        th= t('.amount')
-        th= t('.comment')
-    tbody
-    - @recent_records.each do |record|
-      tr
-        th.[scope="row"]= record.transactinable.try(:date) || record.transactinable.created_at.strftime("%Y-%m-%d")
-        th= record.amount
-        th= record.transactinable.try(:comment) || "To #{record.transactinable.category.name} category"
+  - if @recent_records.blank?
+    h4= t('.no_transactions')
+  - else
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th[scope="col"]= t('.date')
+          th= t('.amount')
+          th= t('.comment')
+      tbody
+      - @recent_records.each do |record|
+        tr
+          td.[scope="row"]= record.date
+          td= record.amount
+          td= record.comment
