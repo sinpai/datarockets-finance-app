@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     post 'update_balance', on: :member, to: 'category_transactions#create'
   end
   resources :balance_transactions, except: %i[index show]
+  resources :cross_categories_transactions, only: %i[new create]
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :cross_categories_transaction do
-    category_from_id 1
-    category_to_id 1
+    association :category_from_id, factory: :category
+    association :category_to_id, factory: :category
   end
 end

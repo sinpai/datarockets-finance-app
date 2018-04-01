@@ -10,4 +10,4 @@
       =render partial: 'transactions/recent_transactions' unless @recent_records.blank?
   .col-md-3.col-xs-12
     =render 'categories/categories'
-= render partial: 'shared/modal'
+= render partial: 'shared/modal', locals: { style: 'default' }

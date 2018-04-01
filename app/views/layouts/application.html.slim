@@ -15,7 +15,7 @@ html
       .container
         br
         - if notice
-          p.alert.alert-success[role="alert"] = notice
+          p.alert.alert-info[role="alert"] = notice
         - if alert
           p.alert.alert-danger[role="alert"] = alert
         == yield

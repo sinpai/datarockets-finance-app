@@ -3,4 +3,5 @@
     h5.text-center Available money to add:
     p= current_user.free_balance
   = f.input :amount
-  = f.button :submit, t('.add_money'), class: 'btn btn-outline-success'
+  div.text-center
+    = f.button :submit, t('.add_money'), class: 'btn btn-success'

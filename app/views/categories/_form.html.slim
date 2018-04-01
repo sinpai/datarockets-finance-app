@@ -1,4 +1,5 @@
 = simple_form_for @category do |f|
   = f.input :name
   = f.input :amount
-  = f.button :submit, t('.add_category'), class: 'btn btn-outline-success'
+  div.text-center
+    = f.button :submit, t('.add_category'), class: 'btn btn-success'
