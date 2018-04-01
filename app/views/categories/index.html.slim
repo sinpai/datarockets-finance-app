@@ -7,13 +7,4 @@ hr.my-4
 .row
   div.d-flex.justify-content-around.align-content-center.flex-wrap
     = render partial: @categories
-
-
-div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-  .modal-dialog role="document"
-    .modal-content
-      .modal-header
-        h5#exampleModalLabel.modal-title
-        button.close aria-label="Close" data-dismiss="modal" type="button"
-          span aria-hidden="true"  ×
-      .modal-body
+= render partial: 'shared/modal'

@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
   private
 
   def perform_search
-    @search = current_user.transactions.ransack(params[:q])
+    @search = current_user.transactions.includes(:transactinable).ransack(params[:q])
     @transactions = @search.result(distinct: true).paginate(page: params[:page], per_page: 10).decorate
   end
 

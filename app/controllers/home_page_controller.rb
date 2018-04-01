@@ -3,6 +3,7 @@ class HomePageController < ApplicationController
 
   def show
     @form = BalanceTransactionForm.new(BalanceTransaction.new, transactions: Transaction.new)
-    @recent_records = current_user.transactions.most_recent
+    @recent_records = current_user.transactions.includes(:transactinable).most_recent.decorate
+    @categories = current_user.categories
   end
 end
