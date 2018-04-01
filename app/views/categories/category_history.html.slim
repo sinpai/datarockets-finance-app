@@ -1,0 +1,18 @@
+.col-md-12
+  h4.text-center= @category.name
+.col-md-12
+  - if !@transactions.blank?
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th[scope="col"]= t('.date')
+          th= t('.amount')
+          th= t('.comment')
+      tbody
+        - @transactions.each do |record|
+          tr
+            td= record.created_time
+            td= record.amount
+            td= record.category_comment
+  - else
+    h4= t('.no_transactions')
