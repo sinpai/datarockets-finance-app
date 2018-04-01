@@ -49,6 +49,9 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate', '~> 3.1.0'
 # Filter gem
 gem 'ransack'
+# Reform for forms
+gem 'reform'
+gem 'reform-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

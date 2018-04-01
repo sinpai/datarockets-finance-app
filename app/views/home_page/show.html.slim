@@ -3,6 +3,6 @@ div.jumbotron
   p.lead.text-center= t('.description')
   hr.my-4
   .col-md-6.offset-md-3
-    =render partial: 'transactions/form'
+    =render partial: 'balance_transactions/form'
   hr.my-4
   =render partial: 'transactions/recent_transactions' unless @recent_records.blank?
