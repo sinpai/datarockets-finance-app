@@ -1,6 +1,5 @@
 = simple_form_for @category do |f|
   = f.input :name
-  = f.input :amount
   = hidden_field_tag(:category_id, params[:category_id])
   div.text-center
     = f.button :submit, t('.add_category'), class: 'btn btn-success'
