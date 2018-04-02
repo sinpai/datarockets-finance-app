@@ -32,16 +32,7 @@ class CrossCategoriesTransactions::Creator
   end
 
   def transfer_money_between_categories
-    category_from.update(amount: category_from_amount)
-    category_to.update(amount: category_to_amount)
-  end
-
-  def category_from_amount
-    @category_from.amount - @amount
-  end
-
-  def category_to_amount
-    @category_to.amount + @amount
+    Categories::BalanceTransferer.new(category_from, category_to, @amount).transfer
   end
 
   def valid?
