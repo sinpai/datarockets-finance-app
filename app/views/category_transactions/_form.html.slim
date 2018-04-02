@@ -1,6 +1,6 @@
 = simple_form_for :category_transaction, url: update_balance_category_path, method: :post do |f|
   span.text-center
-    h5.text-center Available money to add:
+    h5.text-center= t('.available_money')
     p= current_user.free_balance
   = f.input :amount
   = f.button :submit, t('.add_money'), class: 'btn btn-outline-success'
