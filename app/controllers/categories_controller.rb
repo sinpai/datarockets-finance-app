@@ -1,19 +1,25 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_category, only: %i[update destroy edit category_history]
+  before_action :find_category, only: %i[update destroy edit show]
+  before_action :set_parent, only: %i[new create]
 
   def index
-    @categories = current_user.categories.paginate(page: params[:page], per_page: 10)
+    @categories = current_user.categories.top_category.paginate(page: params[:page], per_page: 10)
+  end
+
+  def show
+    @transactions = current_user.transactions.category_history_transactions(params[:id].to_i)
+    @subcategories = @category.sub_categories
   end
 
   def new
-    @category = current_user.categories.new
+    @category = @parent.sub_categories.new
   end
 
   def create
-    @category = current_user.categories.new(category_params)
+    @category = Categories::Creator.new(parent: @parent, params: create_params).call
     respond_to do |format|
-      if @category.save
+      if @category.present?
         flash[:notice] = t('.category_created')
       else
         flash[:alert] = t('.category_not_created')
@@ -48,14 +54,23 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def category_history
-    @transactions = current_user.transactions.category_history_transactions(params[:id].to_i)
-  end
-
   private
 
   def find_category
     @category = Category.find(params[:id])
+  end
+
+  def set_parent
+    @parent ||= category || current_user
+  end
+
+  def category
+    category_id = params[:category_id]
+    current_user.categories.find_by(id: category_id) if category_id
+  end
+
+  def create_params
+    category_params.merge(user_id: current_user.id)
   end
 
   def category_params

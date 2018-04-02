@@ -10,4 +10,6 @@ RSpec.describe Category, type: :model do
   }
   it { is_expected.to validate_length_of(:name).is_at_most(15) }
   it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:categorizable) }
+  it { is_expected.to have_many(:sub_categories).dependent(:destroy).class_name('Category') }
 end

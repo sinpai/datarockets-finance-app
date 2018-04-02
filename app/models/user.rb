@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :transactions, dependent: :destroy
   has_many :authorizations, dependent: :destroy
   has_many :categories, dependent: :destroy
+  has_many :sub_categories, as: :categorizable, dependent: :destroy, class_name: 'Category'
 
   def balance
     transactions.balance_transactions.sum(:amount).to_f

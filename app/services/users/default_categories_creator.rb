@@ -1,7 +1,7 @@
 class Users::DefaultCategoriesCreator < Struct.new(:user)
   def call
     default_categories_list.map do |name|
-      categories.create(name: name, amount: 0, user_id: user.id)
+      Category.create(name: name, amount: 0, user_id: user.id, categorizable: user)
     end
   end
 

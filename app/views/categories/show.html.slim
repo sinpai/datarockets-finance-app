@@ -1,0 +1,34 @@
+.row
+  .col-md-9.col-xs-12
+    h4.text-center= @category.name
+    - if !@transactions.blank?
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th[scope="col"]= t('.date')
+            th= t('.amount')
+            th= t('.comment')
+        tbody
+          - @transactions.each do |record|
+            tr
+              td= record.created_time
+              td= record.amount
+              td= record.category_comment
+    - else
+      h4= t('.no_transactions')
+  .col-md-3.col-xs-12
+    = link_to t('.add_sub_category'), new_category_path(category_id: @category.id),  {remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window', class: 'btn btn-primary mb-3 ml-4'}
+    - unless @subcategories.blank?
+      h4.text-center
+        = t('.subcategories')
+      - @subcategories.each do |category|
+        div.card.m-2.p-2
+          h5.card-title.d-flex
+            = link_to category.name, category_path(category), class: "text-center"
+            span.badge.badge-primary.badge-pill.ml-auto
+              = category.amount
+          div.card-body.d-flex.justify-content-around.flex-wrap
+              = link_to t('.add_money'), add_money_category_path(category), {remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window', class: 'btn btn-info my-1' }
+              = link_to t('.edit'), edit_category_path(category), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
+              = link_to t('.delete'), category_path(category), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'
+= render partial: 'shared/modal', locals: { style: 'primary' }

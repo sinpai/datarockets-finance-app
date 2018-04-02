@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CategoryTransactionsController, type: :controller do
   let(:user) { create(:user) }
-  let(:transaction) { create(:transaction, :category_transactions, user: user) }
-  let(:category) { create(:category, user: user) }
+  let(:transaction) { create(:transaction, categorizable: :category, user: user) }
+  let(:category) { create(:category, :top_category, user: user) }
 
   login_user
 

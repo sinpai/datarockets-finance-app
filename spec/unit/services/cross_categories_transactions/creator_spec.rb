@@ -8,8 +8,8 @@ describe CrossCategoriesTransactions::Creator do
     let(:amount_from) { BigDecimal.new(1000) }
     let(:initial_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
 
-    let(:category_from) { create(:category, user: user, amount: amount_from) }
-    let(:category_to) { create(:category, user: user, amount: initial_amount) }
+    let(:category_from) { create(:category, :top_category, user: user, amount: amount_from) }
+    let(:category_to) { create(:category, :top_category, user: user, amount: initial_amount) }
 
     let(:params) do
       {amount: amount, user_id: user.id, category_from_id: category_from.id,
@@ -51,8 +51,8 @@ describe CrossCategoriesTransactions::Creator do
     let(:amount) { BigDecimal.new(Faker::Number.decimal(4, 2)) }
     let(:category_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
 
-    let(:category_from) { create(:category, user: user, amount: category_amount) }
-    let(:category_to) { create(:category, user: user, amount: category_amount) }
+    let(:category_from) { create(:category, :top_category, user: user, amount: category_amount) }
+    let(:category_to) { create(:category, :top_category, user: user, amount: category_amount) }
 
     let(:initial_category_from_amount) { category_from.amount }
     let(:initial_category_to_amount) { category_to.amount }

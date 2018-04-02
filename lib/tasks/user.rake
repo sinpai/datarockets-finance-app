@@ -19,4 +19,11 @@ namespace :user do
       )
     end
   end
+
+  desc 'Convert old categories to user categories'
+  task convert_categories: :environment do
+    Category.find_each do |category|
+      category.update!(categorizable_type: User, categorizable_id: category.user_id)
+    end
+  end
 end

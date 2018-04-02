@@ -89,6 +89,10 @@ en:
       are_you_sure: "Are you sure?"
     categories:
       add_money: 'Add money to category'
+    show:
+      add_money: 'Add money to category'
+      add_sub_category: 'Add category within'
+      subcategories: 'Subcategories'
   category_transactions:
     form:
       add_money: 'Add money'

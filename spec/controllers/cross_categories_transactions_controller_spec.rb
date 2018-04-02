@@ -16,8 +16,10 @@ RSpec.describe CrossCategoriesTransactionsController, type: :controller do
     context 'when valid' do
       let(:amount) { Faker::Number.decimal(3, 2).to_f }
       let(:amount_from) { amount + Faker::Number.digit.to_f }
-      let(:category_from) { create(:category, user: subject.current_user, amount: amount_from) }
-      let(:category_to) { create(:category, user: subject.current_user) }
+      let(:category_from) do
+        create(:category, :top_category, user: subject.current_user, amount: amount_from)
+      end
+      let(:category_to) { create(:category, :top_category, user: subject.current_user) }
 
       let(:params) do
         {
@@ -40,10 +42,12 @@ RSpec.describe CrossCategoriesTransactionsController, type: :controller do
     end
 
     context 'when not valid' do
-      let(:amount) { Faker::Number.decimal(3, 2).to_f }
-      let(:amount_from) { amount - Faker::Number.digit.to_f }
-      let(:category_from) { create(:category, user: subject.current_user, amount: amount_from) }
-      let(:category_to) { create(:category, user: subject.current_user) }
+      let(:amount_from) { Faker::Number.decimal(3, 2).to_f }
+      let(:amount) { amount_from + Faker::Number.digit.to_f }
+      let(:category_from) do
+        create(:category, :top_category, user: subject.current_user, amount: amount_from)
+      end
+      let(:category_to) { create(:category, :top_category, user: subject.current_user) }
 
       let(:params) do
         {
