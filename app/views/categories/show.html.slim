@@ -1,7 +1,7 @@
 .row
   .col-md-9.col-xs-12
     h4.text-center= @category.name
-    - if !@transactions.blank?
+    - unless @transactions.blank?
       table.table.table-striped.table-hover
         thead
           tr

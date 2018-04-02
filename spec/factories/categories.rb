@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :category do
     name { Faker::Lorem.word }
-    amount { Faker::Number.digit.to_f }
+    amount { Faker::Number.decimal(2, 2).to_f }
     user
 
     trait :top_category do

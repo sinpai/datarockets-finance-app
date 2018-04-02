@@ -96,6 +96,7 @@ en:
   category_transactions:
     form:
       add_money: 'Add money'
+      available_money: 'Available money to add'
     new:
       add_money_to_category_modal_title: 'Add money to category'
     create:
