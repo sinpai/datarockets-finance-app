@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe BalanceTransactions::Updater do
   context 'when valid' do
-    let(:amount) { Faker::Number.digit.to_i }
+    let(:amount) { Faker::Number.decimal(3, 2) }
     let(:date) { Faker::Date.between(1.year.ago, Date.current) }
     let(:comment) { Faker::Lorem.word }
     let(:transaction) { create(:transaction, :balance_transactions) }
