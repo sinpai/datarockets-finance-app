@@ -3,7 +3,7 @@ require 'faker'
 module TransactionsFeatureHelper
   def fill_transaction_form(rand_num, edit = false)
     page.should have_css('#modal-window', visible: true)
-    rand_num = Faker::Number.digit.to_i if edit
+    rand_num = Faker::Number.decimal(3, 2) if edit
     fill_data_in_fields(rand_num)
   end
 
