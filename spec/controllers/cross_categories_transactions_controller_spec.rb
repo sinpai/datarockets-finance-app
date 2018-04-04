@@ -22,19 +22,21 @@ RSpec.describe CrossCategoriesTransactionsController, type: :controller do
       let(:params) do
         {
           amount: amount,
-          category_from_id: category_from.id,
-          category_to_id: category_to.id
+          cross_categories_transactions_attributes: {
+            category_from_id: category_from.id,
+            category_to_id: category_to.id
+          }
         }
       end
 
       it 'creates transaction' do
         expect do
-          post :create, params: {cross_categories_transaction: params}
+          post :create, params: {transaction: params}
         end.to change(CrossCategoriesTransaction, :count).by(1)
       end
 
       it 'redirects after create' do
-        post :create, params: {cross_categories_transaction: params}
+        post :create, params: {transaction: params}
         expect(response).to redirect_to categories_path
       end
     end
@@ -48,14 +50,16 @@ RSpec.describe CrossCategoriesTransactionsController, type: :controller do
       let(:params) do
         {
           amount: amount,
-          category_from_id: category_from.id,
-          category_to_id: category_to.id
+          cross_categories_transactions_attributes: {
+            category_from_id: category_from.id,
+            category_to_id: category_to.id
+          }
         }
       end
 
       it 'not creates new transaction' do
         expect do
-          post :create, params: {cross_categories_transaction: params}
+          post :create, params: {transaction: params}
         end.not_to change(Transaction, :count)
       end
     end
