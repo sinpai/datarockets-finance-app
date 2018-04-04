@@ -45,7 +45,7 @@ RSpec.describe CrossCategoriesTransactionsController, type: :controller do
 
     context 'when not valid' do
       let(:amount_from) { Faker::Number.decimal(3, 2).to_f }
-      let(:amount) { amount_from + Faker::Number.digit.to_f }
+      let(:amount) { amount_from + Faker::Number.decimal(3, 2).to_f }
       let(:category_from) do
         create(:category, :top_category, user: subject.current_user, amount: amount_from)
       end
