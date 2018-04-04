@@ -8,7 +8,7 @@ class CategoryTransactionsController < ApplicationController
   def create
     respond_to do |format|
       notice = if @form.validate(category_transaction_params) &&
-        CategoryTransactions::Creator.new(create_params).call
+                  CategoryTransactions::Creator.new(create_params).call
         t('.success')
       else
         t('.failure')
