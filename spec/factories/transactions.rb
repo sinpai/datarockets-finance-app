@@ -2,7 +2,7 @@ require 'faker'
 
 FactoryBot.define do
   factory :transaction do
-    amount { Faker::Number.decimal(2, 2).to_f }
+    amount { Faker::Number.decimal(3, 2).to_f }
     user
 
     trait :balance_transactions do
