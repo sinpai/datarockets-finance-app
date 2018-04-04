@@ -4,6 +4,7 @@ class Transaction < ApplicationRecord
 
   validates :amount, :user, presence: true
   validates :amount, numericality: true
+  validates :amount, numericality: { greater_than: 0 }
 
   scope :most_recent, -> { order(created_at: :desc).limit(most_recent_count) }
 

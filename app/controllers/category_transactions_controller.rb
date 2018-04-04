@@ -1,12 +1,14 @@
 class CategoryTransactionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :create_new_form, only: %i[new create]
 
   def new
   end
 
   def create
     respond_to do |format|
-      notice = if CategoryTransactions::Creator.new(create_params).call
+      notice = if @form.validate(category_transaction_params) &&
+        CategoryTransactions::Creator.new(create_params).call
         t('.success')
       else
         t('.failure')
@@ -18,6 +20,10 @@ class CategoryTransactionsController < ApplicationController
 
   private
 
+  def create_new_form
+    @form = CategoryTransactionForm.new(current_user.transactions.new)
+  end
+
   def create_params
     {
       user_id: current_user.id,
@@ -27,7 +33,7 @@ class CategoryTransactionsController < ApplicationController
   end
 
   def category_transaction_params
-    params.require(:category_transaction).permit(
+    params.require(:transaction).permit(
       :amount
     )
   end
