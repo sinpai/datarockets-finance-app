@@ -76,7 +76,7 @@ en:
       edit_category: 'Edit category'
     create:
       category_created: 'You successfully create category.'
-      category_not_created: 'Category not create'
+      category_not_created: 'Category cannot be created. Please enter more than 2 characters.'
     update:
       category_updated: 'You successfully update category'
       category_not_updated: 'Category not update'

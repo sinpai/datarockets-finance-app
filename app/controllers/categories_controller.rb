@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Categories::Creator.new(parent: @parent, params: create_params).call
     respond_to do |format|
-      if @category.present?
+      if @category.persisted?
         flash[:notice] = t('.category_created')
       else
         flash[:alert] = t('.category_not_created')
