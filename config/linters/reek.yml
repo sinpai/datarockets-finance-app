@@ -13,6 +13,10 @@ FeatureEnvy:
     - "ApplicationHelper"
     - "BalanceTransactions::Updater"
     - "BalanceTransactions::Creator"
+    - "BalanceTransactionsController#compose_date"
+DuplicateMethodCall:
+  exclude:
+    - "BalanceTransactionsController#compose_date"
 UtilityFunction:
   exclude:
     - "ApplicationHelper"

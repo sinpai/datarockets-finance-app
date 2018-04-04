@@ -59,10 +59,19 @@ class BalanceTransactionsController < ApplicationController
 
   def params_to_hash
     {
-      date: balance_transaction_params[:date],
+      date: compose_date || balance_transaction_params[:date],
       comment: balance_transaction_params[:comment],
       amount: balance_transaction_params[:transactions_attributes][:amount]
     }
+  end
+
+  def compose_date
+    return false if params[:balance_transaction]['date(1i)'].blank?
+    date_array = []
+    (1..3).each do |dt|
+      date_array << params[:balance_transaction]["date(#{dt}i)"]
+    end
+    date_array.reverse.join('-')
   end
 
   def balance_transaction_params

@@ -10,7 +10,6 @@ module TransactionsFeatureHelper
   def fill_data_in_fields(rand_num)
     within '#modal-window .modal-body form' do
       fill_in 'balance_transaction[transactions_attributes][amount]', with: rand_num
-      fill_in 'balance_transaction[date]', with: Date.current.to_s
       fill_in 'balance_transaction[comment]', with: Faker::Lorem.word
     end
     click_on 'Save'
