@@ -15,7 +15,7 @@
             td= record.comment
             td.d-flex.justify-content-end
               - if record.balance_transaction?
-                = link_to t('.edit_button'), edit_balance_transaction_path(record.transactinable.id), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
+                = link_to t('.edit_button'), edit_balance_transaction_path(record.transactinable.id), { remote: true, 'data-toggle': 'modal', 'data-target': '#modal-window', class: 'btn btn-info mx-3' }
                 = link_to t('.delete_button'), balance_transaction_path(record), method: :delete, data: { confirm: t('.are_you_sure') }, class: 'btn btn-danger delete-item mx-3'
   - else
     h4= t('.no_transactions')
