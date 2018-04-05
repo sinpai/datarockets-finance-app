@@ -5,7 +5,7 @@ describe CrossCategoriesTransactions::Creator do
     let(:user) { create(:user) }
 
     let(:amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
-    let(:amount_from) { BigDecimal.new(1000) }
+    let(:amount_from) { BigDecimal.new(1000).to_f }
     let(:initial_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
 
     let(:category_from) { create(:category, :top_category, user: user, amount: amount_from) }
