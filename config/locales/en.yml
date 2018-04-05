@@ -1,5 +1,5 @@
 en:
-  moving_to: "Budgetting: "
+  moving_to: "To category -> "
   layouts:
     application:
       title: 'Datarockets Finance App'
@@ -20,6 +20,7 @@ en:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
+      negative_amount: 'Please enter positive amount'
     update:
       success: 'Record has been updated successfully'
       failure: 'Some error occured. Please try again'
@@ -45,7 +46,6 @@ en:
       new_transaction: 'Add new transaction'
       log_in_warning: 'Please sign in before accessing this section'
       new_transaction_button: 'New transaction'
-      add_cross_categories_transaction: 'Send money to another category'
     recent_transactions:
       id: 'Id'
       amount: 'Amount'
@@ -71,7 +71,6 @@ en:
       all_categories: 'All categories'
       log_in_warning: 'Please log in first'
       new_category: 'Add new category'
-      add_cross_categories_transaction: 'Send money to another category'
     edit:
       edit_category: 'Edit category'
     create:
@@ -87,8 +86,6 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       are_you_sure: "Are you sure?"
-    categories:
-      add_money: 'Add money to category'
   category_transactions:
     form:
       add_money: 'Add money'
@@ -97,12 +94,5 @@ en:
       add_money_to_category_modal_title: 'Add money to category'
     create:
       success: 'Money has been added to category successfully'
-      failure: 'Not enough free money'
-  cross_categories_transactions:
-    form:
-      send: 'Send money to category'
-    new:
-      add_cross_categories_transaction: 'Send money to another category'
-    create:
-      success: 'Money has been sent!'
-      failure: 'Error occured during money send'
+      failure: 'Error occured'
+      negative_amount: 'Please enter positive amount'
