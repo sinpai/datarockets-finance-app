@@ -113,6 +113,8 @@ en:
     create:
       success: 'Money has been added to category successfully'
       failure: 'Not enough free money'
+    create:
+      negative_amount: 'Please enter positive amount'
   cross_categories_transactions:
     form:
       send: 'Send money to category'
