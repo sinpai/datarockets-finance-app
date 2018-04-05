@@ -11,6 +11,8 @@ class BalanceTransactionsController < ApplicationController
       notice = if @form.validate(balance_transaction_params) &&
                   BalanceTransactions::Creator.new(create_params).call
         t('.success')
+      elsif BalanceTransactions::Creator.new(create_params).call == -1
+        t('.negative_amount')
       else
         t('.failure')
       end

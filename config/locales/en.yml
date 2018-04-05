@@ -20,6 +20,7 @@ en:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
+      negative_amount: 'Please enter positive amount'
     update:
       success: 'Record has been updated successfully'
       failure: 'Some error occured. Please try again'
@@ -94,3 +95,4 @@ en:
     create:
       success: 'Money has been added to category successfully'
       failure: 'Error occured'
+      negative_amount: 'Please enter positive amount'

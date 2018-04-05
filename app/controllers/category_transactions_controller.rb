@@ -10,6 +10,8 @@ class CategoryTransactionsController < ApplicationController
       notice = if @form.validate(category_transaction_params) &&
                   CategoryTransactions::Creator.new(create_params).call
         t('.success')
+      elsif CategoryTransactions::Creator.new(create_params).call == -1
+        t('.negative_amount')
       else
         t('.failure')
       end
