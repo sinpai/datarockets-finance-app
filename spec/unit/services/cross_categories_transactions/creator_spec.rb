@@ -4,9 +4,9 @@ describe CrossCategoriesTransactions::Creator do
   context 'when valid' do
     let(:user) { create(:user) }
 
-    let(:amount) { BigDecimal.new(Faker::Number.decimal(3, 2)).to_f }
+    let(:amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
     let(:amount_from) { BigDecimal.new(1000).to_f }
-    let(:initial_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)).to_f }
+    let(:initial_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
 
     let(:category_from) { create(:category, user: user, amount: amount_from) }
     let(:category_to) { create(:category, user: user, amount: initial_amount) }
