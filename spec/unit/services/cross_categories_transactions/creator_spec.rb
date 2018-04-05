@@ -36,11 +36,11 @@ describe CrossCategoriesTransactions::Creator do
       end
 
       it 'Update category_from amount' do
-        expect(category_from.amount).to eq(amount_from - amount)
+        expect(category_from.amount).to eq((amount_from - amount).to_f)
       end
 
       it 'Update category_to amount' do
-        expect(category_to.amount).to eq(initial_amount + amount)
+        expect(category_to.amount).to eq((initial_amount + amount).to_f)
       end
     end
   end
