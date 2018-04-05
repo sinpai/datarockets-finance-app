@@ -7,20 +7,25 @@ class CategoryTransactionsController < ApplicationController
 
   def create
     respond_to do |format|
-      notice = if @form.validate(category_transaction_params) &&
-                  CategoryTransactions::Creator.new(create_params).call
-        t('.success')
-      elsif CategoryTransactions::Creator.new(create_params).call == -1
-        t('.negative_amount')
-      else
-        t('.failure')
-      end
+      notice = create_conditions
       format.html { redirect_to categories_path, notice: notice }
       format.js { render layout: false }
     end
   end
 
   private
+
+  def create_conditions
+    category_transaction = CategoryTransactions::Creator.new(create_params).call
+    if @form.validate(category_transaction_params) &&
+       category_transaction
+      t('.success')
+    elsif category_transaction == -1
+      t('.negative_amount')
+    else
+      t('.failure')
+    end
+  end
 
   def create_new_form
     @form = CategoryTransactionForm.new(current_user.transactions.new)

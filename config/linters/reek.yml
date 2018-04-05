@@ -21,6 +21,6 @@ UtilityFunction:
   exclude:
     - "ApplicationHelper"
 TooManyStatements:
-  max_statements: 8
+  max_statements: 9
 TooManyInstanceVariables:
   max_instance_variables: 5
