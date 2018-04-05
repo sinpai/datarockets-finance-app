@@ -5,7 +5,7 @@ describe CrossCategoriesTransactions::Creator do
     let(:user) { create(:user) }
 
     let(:amount) { Faker::Number.decimal(3, 2).to_f }
-    let(:amount_from) { BigDecimal.new(1000).to_f }
+    let(:amount_from) { Faker::Number.decimal(4, 2).to_f }
     let(:initial_amount) { Faker::Number.decimal(3, 2).to_f }
 
     let(:category_from) { create(:category, :top_category, user: user, amount: amount_from) }
@@ -36,11 +36,11 @@ describe CrossCategoriesTransactions::Creator do
       end
 
       it 'Update category_from amount' do
-        expect(category_from.amount).to eq(amount_from - amount)
+        expect(category_from.amount).to eq((amount_from - amount).round(2))
       end
 
       it 'Update category_to amount' do
-        expect(category_to.amount).to eq(initial_amount + amount)
+        expect(category_to.amount).to eq((initial_amount + amount).round(2))
       end
     end
   end
@@ -77,11 +77,11 @@ describe CrossCategoriesTransactions::Creator do
     end
 
     it 'Update category_from amount' do
-      expect(category_from.amount).to eq(initial_category_from_amount.to_f)
+      expect(category_from.amount).to eq(initial_category_from_amount)
     end
 
     it 'Update category_to amount' do
-      expect(category_to.amount).to eq(initial_category_to_amount.to_f)
+      expect(category_to.amount).to eq(initial_category_to_amount)
     end
   end
 end
