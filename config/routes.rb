@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'home_page#show'
   resources :transactions, only: %i[index] do
     collection do
-      post 'search', to: 'transactions#search'
+      post 'search' => 'transactions#search'
+      get 'search' => 'transactions#index'
     end
   end
   resources :categories do
