@@ -1,8 +1,13 @@
-div.jumbotron
-  h2.display-4.text-center= t('.first_page')
-  p.lead.text-center= t('.description')
-  hr.my-4
-  .col-md-6.offset-md-3
-    =render partial: 'balance_transactions/form'
-  hr.my-4
-  =render partial: 'transactions/recent_transactions' unless @recent_records.blank?
+.row
+  .col-md-9.col-xs-12
+    div.jumbotron
+      h2.display-4.text-center= t('.first_page')
+      p.lead.text-center= t('.description')
+      hr.my-4
+      .col-md-8.offset-md-2
+        =render partial: 'balance_transactions/form'
+      hr.my-4
+      =render partial: 'transactions/recent_transactions' unless @recent_records.blank?
+  .col-md-3.col-xs-12
+    =render 'categories/categories'
+= render partial: 'shared/modal', locals: { style: 'default' }

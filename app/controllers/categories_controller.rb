@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_category, only: %i[update destroy edit]
+  before_action :find_category, only: %i[update destroy edit category_history]
 
   def index
     @categories = current_user.categories.paginate(page: params[:page], per_page: 10)
@@ -46,6 +46,11 @@ class CategoriesController < ApplicationController
       format.html { redirect_to categories_path }
       format.js
     end
+  end
+
+  def category_history
+    @history = Categories::Historier.new(@category).result.flatten
+    @transactions = Transaction.where(id: @history.map(&:id)).decorate
   end
 
   private

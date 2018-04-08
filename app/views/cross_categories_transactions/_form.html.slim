@@ -1,0 +1,7 @@
+= simple_form_for @form, url: cross_categories_transactions_path, method: :post do |f|
+  = f.simple_fields_for :cross_categories_transactions do |t|
+    = t.input :category_from_id, collection: @categories, prompt: t('select_category')
+    = t.input :category_to_id, collection: @categories, prompt: t('select_category')
+  = f.input :amount
+  div.text-center
+    = f.button :submit, t('.send'), class: 'btn btn-success'

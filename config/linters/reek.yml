@@ -24,4 +24,4 @@ UtilityFunction:
 TooManyStatements:
   max_statements: 9
 TooManyInstanceVariables:
-  max_instance_variables: 5
+  max_instance_variables: 8

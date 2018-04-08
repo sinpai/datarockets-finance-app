@@ -3,4 +3,5 @@
     = t.input :amount
   = f.input :date, as: :date, order: [:day, :month, :year]
   = f.input :comment
-  = f.button :submit, t('.submit'), class: 'btn btn-primary'
+  div.text-center
+    = f.button :submit, t('.submit'), class: 'btn btn-success'

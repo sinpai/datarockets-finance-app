@@ -6,7 +6,8 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def category_name
-    transactinable.category.name
+    transactinable.try(:category).try(:name) || transactinable.category_from.name +
+      '-> ' + transactinable.category_to.name
   end
 
   def date

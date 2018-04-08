@@ -10,6 +10,7 @@ class Transaction < ApplicationRecord
 
   scope :balance_transactions, -> { where(transactinable_type: 'BalanceTransaction') }
   scope :category_transactions, -> { where(transactinable_type: 'CategoryTransaction') }
+  scope :cross_categories_transactions, -> { where(transactinable_type: 'CrossCategoriesTransaction') }
 
   def self.most_recent_count
     10

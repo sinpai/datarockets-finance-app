@@ -1,0 +1,30 @@
+.modal-default .modal-content {
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+  color: #333333;
+}
+.modal-default .modal-content .modal-header {
+  background-color: #e8e8e8;
+  border-color: #dddddd;
+}
+.modal-default .modal-content .modal-body {
+  border-top-color: #dddddd;
+}
+.modal-default .modal-content .modal-footer + .modal-collapse .modal-body {
+  border-bottom-color: #dddddd;
+}
+.modal-primary .modal-content {
+  background-color: #428bca;
+  border-color: #428bca;
+  color: #ffffff;
+}
+.modal-primary .modal-content .modal-header {
+  background-color: #357ebd;
+  border-color: #428bca;
+}
+.modal-primary .modal-content .modal-body {
+  border-top-color: #428bca;
+}
+.modal-primary .modal-content .modal-footer + .modal-collapse .modal-body {
+  border-bottom-color: #428bca;
+}

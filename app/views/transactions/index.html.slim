@@ -15,11 +15,4 @@ hr.my-4
 
 = will_paginate(@transactions)
 
-div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-  .modal-dialog role="document"
-    .modal-content
-      .modal-header
-        h5#exampleModalLabel.modal-title
-        button.close aria-label="Close" data-dismiss="modal" type="button"
-          span aria-hidden="true"  ×
-      .modal-body
+= render partial: 'shared/modal', locals: { style: 'primary' }
