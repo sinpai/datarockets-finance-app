@@ -49,7 +49,8 @@ class CategoriesController < ApplicationController
   end
 
   def category_history
-    @transactions = current_user.transactions.category_history_transactions(params[:id].to_i)
+    @history = Categories::Historier.new(@category).result.flatten
+    @transactions = Transaction.where(id: @history.map(&:id)).decorate
   end
 
   private
