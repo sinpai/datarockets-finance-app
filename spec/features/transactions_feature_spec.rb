@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Transactions', type: :feature do
   context 'when logged in' do
-    let(:rand_num) { Faker::Number.digit.to_i }
+    let(:rand_num) { Faker::Number.decimal(3, 2).to_f }
     let(:user) { create :user }
+    let(:transaction) { create(:transaction, :balance_transactions, user: user) }
 
     before do
       login_like_user(user)

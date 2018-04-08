@@ -5,7 +5,7 @@ describe BalanceTransactions::Updater do
     let(:amount) { Faker::Number.digit.to_i }
     let(:date) { Faker::Date.between(1.year.ago, Date.current) }
     let(:comment) { Faker::Lorem.word }
-    let(:transaction) { create(:transaction) }
+    let(:transaction) { create(:transaction, :balance_transactions) }
     let(:params) { {date: date, comment: comment, amount: amount, transaction_id: transaction.id} }
 
     before do
@@ -27,7 +27,7 @@ describe BalanceTransactions::Updater do
   end
 
   context 'when not valid' do
-    let!(:transaction) { create(:transaction) }
+    let!(:transaction) { create(:transaction, :balance_transactions) }
     let(:init_amount) { transaction.amount }
     let(:date) { Faker::Date.between(1.year.ago, Date.current) }
     let(:comment) { Faker::Lorem.word }
