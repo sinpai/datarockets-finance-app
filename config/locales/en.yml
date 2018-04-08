@@ -1,4 +1,5 @@
 en:
+  moving_to: "To category -> "
   layouts:
     application:
       title: 'Datarockets Finance App'
@@ -10,7 +11,6 @@ en:
   shared:
     navbar:
       brand_name: 'Personal Finance App'
-      balance: 'Balance: '
       categories: 'Categories'
     user_session:
       logout: 'Logout'
@@ -20,6 +20,7 @@ en:
     create:
       success: 'Record has been successfully added'
       failure: 'Some error occured. Please try again'
+      negative_amount: 'Please enter positive amount'
     update:
       success: 'Record has been updated successfully'
       failure: 'Some error occured. Please try again'
@@ -35,6 +36,9 @@ en:
       delete_success: 'Record deleted successfully'
       failure: 'Some error occured. Please try again'
   transactions:
+    balance:
+      balance: 'Balance: '
+      free_balance: 'Free: '
     index:
       balance: 'Balance: '
       activity_header: 'All transactions'
@@ -47,6 +51,7 @@ en:
       amount: 'Amount'
       date: 'Date'
       comment: 'Comment'
+      no_transactions: 'No transactions'
     transactions:
       date: 'Date'
       amount: 'Amount'
@@ -56,6 +61,7 @@ en:
       are_you_sure: 'Are you sure?'
       edit_button: 'Edit'
       delete_button: 'Delete'
+      no_transactions: 'No transactions'
   categories:
     form:
       add_category: 'Add category'
@@ -76,4 +82,17 @@ en:
     destroy:
       deleted_category_success: 'You successfully deleted category.'
     category:
+      add_money: 'Add money to category'
+      edit: 'Edit'
+      delete: 'Delete'
       are_you_sure: "Are you sure?"
+  category_transactions:
+    form:
+      add_money: 'Add money'
+      available_money: 'Available money to add'
+    new:
+      add_money_to_category_modal_title: 'Add money to category'
+    create:
+      success: 'Money has been added to category successfully'
+      failure: 'Error occured'
+      negative_amount: 'Please enter positive amount'

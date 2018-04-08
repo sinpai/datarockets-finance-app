@@ -5,8 +5,6 @@ class BalanceTransactionForm < Reform::Form
   model :balance_transaction
 
   validates :comment, length: {maximum: 80}
-  validates :date, presence: true
-
   property :id
   property :comment
   property :date

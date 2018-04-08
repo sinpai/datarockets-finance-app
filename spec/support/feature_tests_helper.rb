@@ -6,6 +6,6 @@ module FeatureTestsHelper
     click_on 'Sign in'
     expect(page).to have_content 'Signed in successfully'
 
-    create_list(:transaction, 5, user: user)
+    create_list(:transaction, 5, :balance_transactions, user: user)
   end
 end

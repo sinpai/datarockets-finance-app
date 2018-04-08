@@ -2,7 +2,7 @@ class BalanceTransactions::Creator
   def initialize(date:, comment:, amount:, user_id:)
     @date = date
     @comment = comment
-    @amount = amount
+    @amount = amount.to_f
     @user_id = user_id
   end
 

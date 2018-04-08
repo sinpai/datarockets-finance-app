@@ -8,12 +8,7 @@ class BalanceTransactionsController < ApplicationController
 
   def create
     respond_to do |format|
-      notice = if @form.validate(balance_transaction_params) &&
-                  BalanceTransactions::Creator.new(create_params).call
-        t('.success')
-      else
-        t('.failure')
-      end
+      notice = create_conditions
       format.html { redirect_to transactions_path, notice: notice }
       format.js { render layout: false }
     end
@@ -49,6 +44,16 @@ class BalanceTransactionsController < ApplicationController
 
   private
 
+  def create_conditions
+    balance_transaction = BalanceTransactions::Creator.new(create_params).call
+    if @form.validate(balance_transaction_params) &&
+       balance_transaction
+      t('.success')
+    else
+      form_errors
+    end
+  end
+
   def create_params
     params_to_hash.merge(user_id: current_user.id)
   end
@@ -59,7 +64,8 @@ class BalanceTransactionsController < ApplicationController
 
   def params_to_hash
     {
-      date: balance_transaction_params[:date],
+      date: BalanceTransactions::DateComposer.new(params[:balance_transaction]).call ||
+        balance_transaction_params[:date],
       comment: balance_transaction_params[:comment],
       amount: balance_transaction_params[:transactions_attributes][:amount]
     }

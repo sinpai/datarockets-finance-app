@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BalanceTransactionsController, type: :controller do
   let(:user) { create(:user) }
-  let(:transaction) { create(:transaction, user: user) }
+  let(:transaction) { create(:transaction, :balance_transactions, user: user) }
 
   login_user
 
@@ -51,7 +51,7 @@ RSpec.describe BalanceTransactionsController, type: :controller do
   describe 'PUT #update' do
     context 'when valid' do
       let(:amount) { Faker::Number.digit.to_i }
-      let(:transaction) { create(:transaction) }
+      let(:transaction) { create(:transaction, :balance_transactions) }
 
       let(:params) do
         {
