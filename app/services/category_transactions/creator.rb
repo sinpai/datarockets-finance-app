@@ -7,7 +7,6 @@ class CategoryTransactions::Creator
 
   def call
     return unless valid?
-    return -1 if negative?
     ActiveRecord::Base.transaction do
       create_category_transaction
       create_transaction
@@ -39,10 +38,6 @@ class CategoryTransactions::Creator
 
   def valid?
     user.free_balance >= @amount
-  end
-
-  def negative?
-    @amount <= 0
   end
 
   def user
