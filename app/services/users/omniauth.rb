@@ -8,8 +8,8 @@ class Users::Omniauth < Struct.new(:auth)
 
   def find_or_create_authorization
     user.authorizations
-        .create_with(uid: uid)
-        .find_or_create_by(provider: provider)
+      .create_with(uid: uid)
+      .find_or_create_by(provider: provider)
   end
 
   def user

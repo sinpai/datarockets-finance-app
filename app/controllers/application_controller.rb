@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def form_errors
+    @form.errors.messages.map { |key, _| key.to_s.titleize }.join(', ') +
+      ' ' + @form.errors.messages.map { |_, value| value }.flatten.join(' and ')
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user|
       user.permit(:username, :email, :password,
