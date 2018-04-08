@@ -2,7 +2,7 @@ h4.text-center= t('.categories')
 - @categories.each do |category|
   div.card.m-2.p-2
     h5.card-title.d-flex
-      = link_to category.name, category_history_category_path(category), class: "text-center"
+      = link_to category.name, category_path(category), class: "text-center"
       span.badge.badge-primary.badge-pill.ml-auto
         = category.amount
     div.card-body.d-flex.justify-content-center

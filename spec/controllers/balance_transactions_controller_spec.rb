@@ -50,7 +50,7 @@ RSpec.describe BalanceTransactionsController, type: :controller do
 
   describe 'PUT #update' do
     context 'when valid' do
-      let(:amount) { Faker::Number.digit.to_i }
+      let(:amount) { Faker::Number.decimal(3, 2).to_f }
       let(:transaction) { create(:transaction, :balance_transactions) }
 
       let(:params) do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.context CategoriesController, type: :controller do
   context 'when logged in' do
-    let(:category) { create(:category) }
+    let(:category) { create(:category, :top_category) }
 
     login_user
 
@@ -123,7 +123,7 @@ RSpec.context CategoriesController, type: :controller do
     end
 
     context 'when deleting category' do
-      let!(:category) { create(:category) }
+      let!(:category) { create(:category, :top_category) }
 
       it 'destroys category' do
         expect do

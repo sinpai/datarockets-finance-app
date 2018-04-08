@@ -77,7 +77,7 @@ en:
       edit_category: 'Edit category'
     create:
       category_created: 'You successfully create category.'
-      category_not_created: 'Category not create'
+      category_not_created: 'Category cannot be created.'
     update:
       category_updated: 'You successfully update category'
       category_not_updated: 'Category not update'
@@ -90,6 +90,10 @@ en:
       are_you_sure: "Are you sure?"
     categories:
       add_money: 'Add money to category'
+    show:
+      add_money: 'Add money to category'
+      add_sub_category: 'Add category within'
+      subcategories: 'Subcategories'
   category_transactions:
     form:
       add_money: 'Add money'
