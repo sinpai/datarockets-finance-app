@@ -18,8 +18,8 @@ class Category < ApplicationRecord
 
   def descendents
     sub_categories.map do |sub_category|
-      [sub_category] + sub_category.sub_categories
-    end.flatten
+      [sub_category] + sub_category.sub_categories + sub_category.descendents
+    end.flatten.uniq
   end
 
   def self_and_descendents
