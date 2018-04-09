@@ -54,6 +54,11 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def category_history
+    @history = Categories::Historier.new(@category).result.flatten
+    @transactions = Transaction.where(id: @history.map(&:id)).decorate
+  end
+
   private
 
   def find_category

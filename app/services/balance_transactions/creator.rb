@@ -7,7 +7,6 @@ class BalanceTransactions::Creator
   end
 
   def call
-    return -1 if negative?
     ActiveRecord::Base.transaction do
       create_balance_transaction
       add_transaction_connection
@@ -25,9 +24,5 @@ class BalanceTransactions::Creator
 
   def add_transaction_connection
     @transaction.transactions.create(amount: @amount, user_id: @user_id)
-  end
-
-  def negative?
-    @amount <= 0
   end
 end

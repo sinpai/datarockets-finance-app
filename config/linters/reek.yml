@@ -17,6 +17,7 @@ FeatureEnvy:
 DuplicateMethodCall:
   exclude:
     - "BalanceTransactionsController#compose_date"
+    - "ApplicationController#form_errors"
 UtilityFunction:
   exclude:
     - "ApplicationHelper"

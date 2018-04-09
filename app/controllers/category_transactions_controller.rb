@@ -20,10 +20,8 @@ class CategoryTransactionsController < ApplicationController
     if @form.validate(category_transaction_params) &&
        category_transaction
       t('.success')
-    elsif category_transaction == -1
-      t('.negative_amount')
     else
-      t('.failure')
+      form_errors
     end
   end
 

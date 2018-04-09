@@ -17,4 +17,7 @@ class User < ApplicationRecord
   def free_balance
     balance - categories.sum(:amount)
   end
+
+  delegate :category_transactions, to: :transactions
+  delegate :cross_categories_transactions, to: :transactions
 end

@@ -4,9 +4,9 @@ describe CrossCategoriesTransactions::Creator do
   context 'when valid' do
     let(:user) { create(:user) }
 
-    let(:amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
-    let(:amount_from) { BigDecimal.new(1000).to_f }
-    let(:initial_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
+    let(:amount) { Faker::Number.decimal(3, 2).to_f }
+    let(:amount_from) { Faker::Number.decimal(4, 2).to_f }
+    let(:initial_amount) { Faker::Number.decimal(3, 2).to_f }
 
     let(:category_from) { create(:category, :top_category, user: user, amount: amount_from) }
     let(:category_to) { create(:category, :top_category, user: user, amount: initial_amount) }
@@ -36,11 +36,11 @@ describe CrossCategoriesTransactions::Creator do
       end
 
       it 'Update category_from amount' do
-        expect(category_from.amount).to eq((amount_from - amount).to_f)
+        expect(category_from.amount).to eq((amount_from - amount).round(2))
       end
 
       it 'Update category_to amount' do
-        expect(category_to.amount).to eq((initial_amount + amount).to_f)
+        expect(category_to.amount).to eq((initial_amount + amount).round(2))
       end
     end
   end
@@ -48,8 +48,8 @@ describe CrossCategoriesTransactions::Creator do
   context 'when not valid' do
     let(:user) { create(:user) }
 
-    let(:amount) { BigDecimal.new(Faker::Number.decimal(4, 2)) }
-    let(:category_amount) { BigDecimal.new(Faker::Number.decimal(3, 2)) }
+    let(:amount) { Faker::Number.decimal(4, 2).to_f }
+    let(:category_amount) { Faker::Number.decimal(3, 2).to_f }
 
     let(:category_from) { create(:category, :top_category, user: user, amount: category_amount) }
     let(:category_to) { create(:category, :top_category, user: user, amount: category_amount) }
@@ -81,7 +81,7 @@ describe CrossCategoriesTransactions::Creator do
     end
 
     it 'Update category_to amount' do
-      expect(category_to.amount).to eq(initial_category_to_amount.to_f)
+      expect(category_to.amount).to eq(initial_category_to_amount)
     end
   end
 end
