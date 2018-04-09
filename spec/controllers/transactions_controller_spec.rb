@@ -23,7 +23,7 @@ RSpec.describe TransactionsController, type: :controller do
   end
 
   context 'when logged out' do
-    context 'when loading activity' do
+    describe 'GET #index' do
       before do
         get :index
       end
@@ -37,7 +37,7 @@ RSpec.describe TransactionsController, type: :controller do
       end
     end
 
-    context 'when loading search' do
+    describe 'GET #search' do
       before do
         get :search
       end
