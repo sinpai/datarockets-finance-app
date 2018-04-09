@@ -11,9 +11,9 @@
         tbody
           - @transactions.each do |record|
             tr
-              td= record.created_time
+              td= record.date
               td= record.amount
-              td= record.category_comment
+              td= record.comment
     - else
       h4= t('.no_transactions')
   .col-md-3.col-xs-12
