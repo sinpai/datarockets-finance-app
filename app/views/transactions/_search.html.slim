@@ -17,16 +17,16 @@
           h6
             = t('.for_transaction_to_category')
           = f.select :transactinable_of_CategoryTransaction_type_category_id_in,
-            options_for_select(current_user.categories.collect { | category | [category.name, category.id] }) || [], include_blank: true
+            category_options, include_blank: true
         div.mt-2
           h6
             = t('.for_transactions_between_categories')
           .row
             .col
               = f.select :transactinable_of_CrossCategoriesTransaction_type_category_from_id_in,
-              options_for_select(current_user.categories.collect { | category | [category.name, category.id] }) || [], include_blank: true
+              category_options, include_blank: true
             .col
               = f.select :transactinable_of_CrossCategoriesTransaction_type_category_to_id_in,
-              options_for_select(current_user.categories.collect { | category | [category.name, category.id] }) || [], include_blank: true
+              category_options, include_blank: true
       = f.button :submit, class: "btn btn-primary" do
         = t('.submit')
