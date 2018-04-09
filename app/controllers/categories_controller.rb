@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @transactions = current_user.transactions.category_history_transactions(params[:id].to_i)
+    @transactions = category_history
     @subcategories = @category.sub_categories
   end
 
