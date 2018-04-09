@@ -4,6 +4,6 @@ h4.text-center= t('.categories')
     h5.card-title.d-flex
       = link_to category.name, category_path(category), class: "text-center"
       span.badge.badge-primary.badge-pill.ml-auto
-        = category.amount
+        = category.full_amount
     div.card-body.d-flex.justify-content-center
       = link_to t('.add_money'), add_money_category_path(category), {remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window', class: 'btn btn-info' }

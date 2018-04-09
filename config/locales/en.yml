@@ -1,125 +1,123 @@
 en:
-  moving_to: "Budgetting: "
-  layouts:
-    application:
-      title: 'Datarockets Finance App'
-  home_page:
-    show:
-      log_in_warning: 'You should be logged in order to see this page'
-      first_page: 'Simple app to manage your money'
-      description: "Please fill in money income in the form below"
-  shared:
-    navbar:
-      brand_name: 'Personal Finance App'
-      categories: 'Categories'
-    user_session:
-      logout: 'Logout'
-      login: 'Login'
-      register: 'Register'
   balance_transactions:
     create:
-      success: 'Record has been successfully added'
-      failure: 'Some error occured. Please try again'
-      negative_amount: 'Please enter positive amount'
-    update:
-      success: 'Record has been updated successfully'
-      failure: 'Some error occured. Please try again'
-    form:
-      submit: 'Save'
-    new:
-      header: 'Add money record'
-      new_transaction: 'Add new transaction'
-    edit:
-      header: 'Edit money record'
-      edit_transaction: 'Edit transaction'
+      failure: "Some error occured. Please try again"
+      negative_amount: "Please enter positive amount"
+      success: "Record has been successfully added"
     destroy:
-      delete_success: 'Record deleted successfully'
-      failure: 'Some error occured. Please try again'
-  transactions:
-    balance:
-      balance: 'Balance: '
-      free_balance: 'Free: '
-    index:
-      balance: 'Balance: '
-      activity_header: 'All transactions'
-      search: 'Search'
-      new_transaction: 'Add new transaction'
-      log_in_warning: 'Please sign in before accessing this section'
-      new_transaction_button: 'New transaction'
-      add_cross_categories_transaction: 'Send money to another category'
-    search:
-      from: 'From'
-      to: 'To'
-      select_date_range: 'Select by date range'
-      filter_by_category: 'Search by category and date'
-      for_transaction_to_category: 'Select category'
-      for_transactions_between_categories: 'Select categories to see transactions between them'
-      choose_a_categories: 'Choose a categories'
-      transactions_not_found: 'Transactions not found.'
-      submit: 'Search'
-    recent_transactions:
-      id: 'Id'
-      amount: 'Amount'
-      date: 'Date'
-      comment: 'Comment'
-      no_transactions: 'No transactions'
-    transactions:
-      date: 'Date'
-      amount: 'Amount'
-      date: 'Date'
-      comment: 'Comment'
-      actions: 'Actions'
-      are_you_sure: 'Are you sure?'
-      edit_button: 'Edit'
-      delete_button: 'Delete'
-      no_transactions: 'No transactions'
+      delete_success: "Record deleted successfully"
+      failure: "Some error occured. Please try again"
+    edit:
+      edit_transaction: "Edit transaction"
+      header: "Edit money record"
+    form:
+      submit: Save
+    new:
+      header: "Add money record"
+      new_transaction: "Add new transaction"
+    update:
+      failure: "Some error occured. Please try again"
+      success: "Record has been updated successfully"
   categories:
-    form:
-      add_category: 'Add category'
-    new:
-      new_category: 'New category'
-    index:
-      all_categories: 'All categories'
-      log_in_warning: 'Please log in first'
-      new_category: 'Add new category'
-      add_cross_categories_transaction: 'Send money to another category'
-    edit:
-      edit_category: 'Edit category'
-    create:
-      category_created: 'You successfully create category.'
-      category_not_created: 'Category cannot be created.'
-    update:
-      category_updated: 'You successfully update category'
-      category_not_updated: 'Category not update'
-    destroy:
-      deleted_category_success: 'You successfully deleted category.'
-    category:
-      add_money: 'Add money to category'
-      edit: 'Edit'
-      delete: 'Delete'
-      are_you_sure: "Are you sure?"
     categories:
-      add_money: 'Add money to category'
-    show:
-      add_money: 'Add money to category'
-      add_sub_category: 'Add category within'
-      subcategories: 'Subcategories'
-  category_transactions:
-    form:
-      add_money: 'Add money'
-      available_money: 'Available money to add'
-    new:
-      add_money_to_category_modal_title: 'Add money to category'
+      add_money: "Add money to category"
+    category:
+      add_money: "Add money to category"
+      are_you_sure: "Are you sure?"
+      delete: Delete
+      edit: Edit
     create:
+      category_created: "You successfully create category."
+      category_not_created: "Category cannot be created."
+    destroy:
+      deleted_category_success: "You successfully deleted category."
+    edit:
+      edit_category: "Edit category"
+    form:
+      add_category: "Add category"
+    index:
+      add_cross_categories_transaction: "Send money to another category"
+      all_categories: "All categories"
+      log_in_warning: "Please log in first"
+      new_category: "Add new category"
+    new:
+      new_category: "New category"
+    show:
+      add_money: "Add money to category"
+      add_sub_category: "Add category within"
+      subcategories: Subcategories
+    update:
+      category_not_updated: "Category not update"
+      category_updated: "You successfully update category"
+  category_transactions:
+    create:
+      negative_amount: "Please enter positive amount"
       success: 'Money has been added to category successfully'
       failure: 'Not enough free money'
-    create:
-      negative_amount: 'Please enter positive amount'
-  cross_categories_transactions:
     form:
-      send: 'Send money to category'
+      add_money: "Add money"
+      available_money: "Available money to add"
     new:
-      add_cross_categories_transaction: 'Send money to another category'
+      add_money_to_category_modal_title: "Add money to category"
+  cross_categories_transactions:
     create:
-      success: 'Money has been sent!'
-      failure: 'Error occured during money send'
+      failure: "Error occured during money send"
+      success: "Money has been sent!"
+    form:
+      send: "Send money to category"
+    new:
+      add_cross_categories_transaction: "Send money to another category"
+  home_page:
+    show:
+      description: "Please fill in money income in the form below"
+      first_page: "Simple app to manage your money"
+      log_in_warning: "You should be logged in order to see this page"
+  layouts:
+    application:
+      title: "Datarockets Finance App"
+  moving_to: "Budgetting: "
+  shared:
+    navbar:
+      brand_name: "Personal Finance App"
+      categories: Categories
+    user_session:
+      login: Login
+      logout: Logout
+      register: Register
+  transactions:
+    balance:
+      balance: "Balance: "
+      free_balance: "Free: "
+    index:
+      activity_header: "All transactions"
+      add_cross_categories_transaction: "Send money to another category"
+      balance: "Balance: "
+      log_in_warning: "Please sign in before accessing this section"
+      new_transaction: "Add new transaction"
+      new_transaction_button: "New transaction"
+      search: Search
+    recent_transactions:
+      amount: Amount
+      comment: Comment
+      date: Date
+      id: Id
+      no_transactions: "No transactions"
+    search:
+      choose_a_categories: "Choose a categories"
+      filter_by_category: "Search by category and date"
+      for_transaction_to_category: "Select category"
+      for_transactions_between_categories: "Select categories to see transactions between them"
+      from: From
+      select_date_range: "Select by date range"
+      submit: Search
+      to: To
+      transactions_not_found: "Transactions not found."
+    transactions:
+      actions: Actions
+      amount: Amount
+      are_you_sure: "Are you sure?"
+      comment: Comment
+      date: Date
+      delete_button: Delete
+      edit_button: Edit
+      no_transactions: "No transactions"
