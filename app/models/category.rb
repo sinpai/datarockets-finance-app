@@ -15,4 +15,14 @@ class Category < ApplicationRecord
   validates :amount, :name, presence: true
   validates :amount, numericality: {greater_than_or_equal_to: 0}
   validates :name, length: {minimum: 2, maximum: 40}
+
+  def descendents
+    sub_categories.map do |sub_category|
+      [sub_category] + sub_category.sub_categories
+    end.flatten
+  end
+
+  def self_and_descendents
+    [self] + descendents
+  end
 end

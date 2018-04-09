@@ -6,6 +6,6 @@ class CategoryDecorator < Draper::Decorator
   end
 
   def full_amount
-    amount + sub_categories.sum(&:amount)
+    self_and_descendents.map(&:amount).flatten.reduce(0, :+)
   end
 end
