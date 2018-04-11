@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe HomePageController, type: :controller do
   describe 'GET #show' do
     context 'when unlogged' do
-      it 'redirects to login page when unlogged' do
+      it 'redirects to login page' do
         get :show
         expect(response).to redirect_to(new_user_session_path)
       end
