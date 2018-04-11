@@ -15,6 +15,7 @@ FeatureEnvy:
     - "BalanceTransactions::Creator"
     - "BalanceTransactionsController#compose_date"
     - "Category#descendents"
+    - "TransactionsHelper#categories_by_name_and_id"
 DuplicateMethodCall:
   exclude:
     - "BalanceTransactionsController#compose_date"
