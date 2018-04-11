@@ -8,7 +8,7 @@
     .card-body.d-flex.flex-row.justify-content-around.align-items-center.py-2
       div
         h6
-          =t('.select_date_range')
+          = t('.select_date_range')
         div.d-flex.flex-column
           = f.date_field :transactinable_of_BalanceTransaction_type_date_gt
           = f.date_field :transactinable_of_BalanceTransaction_type_date_lt
@@ -24,9 +24,9 @@
           .row
             .col
               = f.select :transactinable_of_CrossCategoriesTransaction_type_category_from_id_in,
-              category_options, include_blank: true
+                category_options, include_blank: true
             .col
               = f.select :transactinable_of_CrossCategoriesTransaction_type_category_to_id_in,
-              category_options, include_blank: true
+                category_options, include_blank: true
       = f.button :submit, class: "btn btn-primary" do
         = t('.submit')
