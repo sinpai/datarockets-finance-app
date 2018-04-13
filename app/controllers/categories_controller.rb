@@ -4,12 +4,13 @@ class CategoriesController < ApplicationController
   before_action :set_parent, only: %i[new create]
 
   def index
-    @categories = current_user.categories.top_category.paginate(page: params[:page], per_page: 10)
+    @categories = current_user.categories.top_category
+      .paginate(page: params[:page], per_page: 10).decorate
   end
 
   def show
     @transactions = category_history
-    @subcategories = @category.sub_categories
+    @subcategories = @category.sub_categories.decorate
   end
 
   def new

@@ -2,7 +2,7 @@ div.card.m-2.p-2
   h5.card-title.d-flex.px-5
     = link_to category.name, category_path(category), class: "text-center"
     span.badge.badge-primary.badge-pill.ml-auto
-      = category.amount
+      = category.full_amount
   div.card-body.mt-3
     = link_to t('.add_money'), add_money_category_path(category), {remote: true, 'data-toggle':  "modal", 'data-target': '#modal-window', class: 'btn btn-info mx-3' }
     = link_to t('.edit'), edit_category_path(category), { remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window', class: 'btn btn-info mx-3' }
