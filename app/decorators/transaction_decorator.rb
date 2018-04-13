@@ -6,8 +6,10 @@ class TransactionDecorator < Draper::Decorator
   end
 
   def category_name
-    transactinable.try(:category).try(:name) || transactinable.category_from.name +
-      '-> ' + transactinable.category_to.name
+    deleted_category = I18n.t('.deleted_category')
+    transactinable.try(:category).try(:name) ||
+      (transactinable.try(:category_from).try(:name) || deleted_category) +
+        '-> ' + (transactinable.try(:category_to).try(:name) || deleted_category)
   end
 
   def date

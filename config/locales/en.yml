@@ -76,6 +76,7 @@ en:
     application:
       title: "Datarockets Finance App"
   moving_to: "Budgetting: "
+  deleted_category: "deleted category"
   shared:
     navbar:
       brand_name: "Personal Finance App"
