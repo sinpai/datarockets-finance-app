@@ -47,6 +47,16 @@ en:
       log_in_warning: 'Please sign in before accessing this section'
       new_transaction_button: 'New transaction'
       add_cross_categories_transaction: 'Send money to another category'
+    search:
+      from: 'From'
+      to: 'To'
+      select_date_range: 'Select by date range'
+      filter_by_category: 'Search by category and date'
+      for_transaction_to_category: 'Select category'
+      for_transactions_between_categories: 'Select categories to see transactions between them'
+      choose_a_categories: 'Choose a categories'
+      transactions_not_found: 'Transactions not found.'
+      submit: 'Search'
     recent_transactions:
       id: 'Id'
       amount: 'Amount'
@@ -103,6 +113,8 @@ en:
     create:
       success: 'Money has been added to category successfully'
       failure: 'Not enough free money'
+    create:
+      negative_amount: 'Please enter positive amount'
   cross_categories_transactions:
     form:
       send: 'Send money to category'

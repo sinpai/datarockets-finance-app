@@ -1,8 +1,32 @@
-= search_form_for @search, url: search_transactions_path, method: :post do |f|
-  = f.label :date
-  div.input-group
-    = f.text_field :date_gteq, class: 'form-control'
-    span class='input-group-addon'
-      | to
-    = f.text_field :date_lteq, class: 'form-control'
-    = f.submit t('.search'), class: 'btn btn-primary input-group-addon'
+= search_form_for @search, url: search_transactions_path, method: :post, class: 'w-100' do |f|
+  .card.my-2
+    .card-header.pt-3
+      .row
+        .col-md-12
+          h6
+            = t('.filter_by_category')
+    .card-body.d-flex.flex-row.justify-content-around.align-items-center.py-2
+      div
+        h6
+          = t('.select_date_range')
+        div.d-flex.flex-column
+          = f.date_field :transactinable_of_BalanceTransaction_type_date_gt
+          = f.date_field :transactinable_of_BalanceTransaction_type_date_lt
+      div.d-flex.flex-column
+        div
+          h6
+            = t('.for_transaction_to_category')
+          = f.select :transactinable_of_CategoryTransaction_type_category_id_in,
+            category_options, include_blank: true
+        div.mt-2
+          h6
+            = t('.for_transactions_between_categories')
+          .row
+            .col
+              = f.select :transactinable_of_CrossCategoriesTransaction_type_category_from_id_in,
+                category_options, include_blank: true
+            .col
+              = f.select :transactinable_of_CrossCategoriesTransaction_type_category_to_id_in,
+                category_options, include_blank: true
+      = f.button :submit, class: "btn btn-primary" do
+        = t('.submit')
