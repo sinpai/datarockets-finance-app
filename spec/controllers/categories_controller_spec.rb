@@ -1,33 +1,33 @@
 require 'rails_helper'
 
-RSpec.context CategoriesController, type: :controller do
+RSpec.describe CategoriesController, type: :controller do
   context 'when logged in' do
     let(:category) { create(:category, :top_category) }
 
     login_user
 
-    context 'when asking for new category' do
+    describe 'GET #new' do
       it 'renders the :new template' do
         get :new
         expect(response).to render_template :new
       end
     end
 
-    context 'when asking for edit category' do
+    describe 'GET #edit' do
       it 'renders the :edit template' do
         get :edit, params: {id: category.id}
         expect(response).to render_template :edit
       end
     end
 
-    context 'when viewing index' do
+    describe 'GET #index' do
       it 'has a 200 status code' do
         get :index
         expect(response.status).to eq(200)
       end
     end
 
-    context 'when creating new category' do
+    describe 'POST #create' do
       context 'when valid' do
         it 'category has been created' do
           expect do
@@ -55,7 +55,7 @@ RSpec.context CategoriesController, type: :controller do
       end
     end
 
-    context 'when updating category' do
+    describe 'PUT #update' do
       context 'when valid' do
         let(:amount) { Faker::Number.digit }
         let(:name) { Faker::Internet.user_name(5..15) }
