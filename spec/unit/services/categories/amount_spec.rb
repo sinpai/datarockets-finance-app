@@ -18,6 +18,6 @@ describe Categories::Amount do
   end
 
   it 'shows correct amount' do
-    expect(described_class(first_category).calculate).to eq(amount)
+    expect(described_class.new(first_category).calculate).to eq(amount)
   end
 end
